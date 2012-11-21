@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Petrona);
 /* apply a natural box layout model to all elements */
 * {
   -moz-box-sizing: border-box;
@@ -63,7 +64,7 @@
 }
 .Latin,
 .English {
-  font-family: Palatino, 'Palatino Linotype', serif;
+  font-family: Petrona, Palatino, 'Palatino Linotype', serif;
 }
 /* layout dimensions */
 /* text dimensions */
@@ -254,8 +255,10 @@ select {
 }
 form label {
   line-height: 36px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: ubuntu, calibri, arial, sans-serif;
+  letter-spacing: 2px;
   font-size: 12.8px;
 }
 input[type=submit] {
@@ -366,8 +369,7 @@ div.error {
   position: relative;
   overflow: visible;
 }
-a:hover .tip,
-a:active .tip {
+.tip_wrapper:target div.tip {
   display: block;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -375,6 +377,7 @@ a:active .tip {
   -ms-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
+/* make tip div visible */
 /* border images */
 /* buttons */
 .button {
@@ -472,11 +475,6 @@ a:active .tip {
   line-height: 24px;
   padding: 0;
   text-align: center;
-  -moz-border-radius: 16px 16px 16px 16px;
-  -webkit-border-radius: 16px 16px 16px 16px;
-  -o-border-radius: 16px 16px 16px 16px;
-  -ms-border-radius: 16px 16px 16px 16px;
-  border-radius: 16px 16px 16px 16px;
   font-weight: bold;
   -moz-border-radius: 16px 16px 16px 16px;
   -webkit-border-radius: 16px 16px 16px 16px;
@@ -1050,8 +1048,10 @@ div.plugin_slider_slidemenu.initial_state {
 div.plugin_slider_slidemenu h4 {
   display: block;
   text-align: center;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: ubuntu, calibri, arial, sans-serif;
+  letter-spacing: 2px;
   font-size: 12.8px;
   margin-top: 0;
 }
@@ -1108,12 +1108,14 @@ body #page div.plugin_slider_slide {
 body #page div.plugin_slider_slide h1 {
   display: block;
   font-size: 24px;
-  color: #b58900;
+  color: #cb4b16;
   margin: 0 auto;
   text-align: center;
   font-style: normal;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: ubuntu, calibri, arial, sans-serif;
+  letter-spacing: 2px;
 }
 body #page div.plugin_slider_slide ul {
   font-family: Ubuntu, Calibri;
@@ -1179,18 +1181,7 @@ body #page div.plugin_slider_slide table.header_dark thead td {
   background-color: #dfd4b1;
   color: #ffffff;
 }
-body #page div.plugin_slider_slide table.header_col1_dark tr td:first-child {
-  background-color: #dfd4b1;
-  color: #ffffff;
-}
-body #page div.plugin_slider_slide table.header_col1_dark tr.even td:first-child {
-  background-color: #dcd0a9;
-}
-body #page div.plugin_slider_slide table.header_col1_dark thead td {
-  background-color: #dfd4b1;
-  color: #ffffff;
-}
-body #page div.plugin_slider_slide table.clause_diagram_greek td {
+body #page div.plugin_slider_slide table .clause_diagram_greek td {
   background-color: transparent;
   overflow: visible;
   -moz-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
@@ -1199,27 +1190,39 @@ body #page div.plugin_slider_slide table.clause_diagram_greek td {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table.clause_diagram_greek td:first-child {
+body #page div.plugin_slider_slide table .clause_diagram_greek td:first-child {
   background-color: #93a1a1;
   color: #ffffff;
 }
-body #page div.plugin_slider_slide table.clause_diagram_greek td:nth-child(2):after {
-  content: ' ';
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 16px solid transparent;
-  border-bottom: 16px solid transparent;
-  border-right: none;
-  border-left: 16px solid #808080;
-}
-body #page div.plugin_slider_slide table.clause_diagram_greek td:nth-child(3) {
+body #page div.plugin_slider_slide table .clause_diagram_greek td:nth-child(3) {
   background-color: #ffc100;
 }
-body #page div.plugin_slider_slide table.clause_diagram_greek td:nth-child(5) {
+body #page div.plugin_slider_slide table .clause_diagram_greek td:nth-child(5) {
   background-color: #93a1a1;
   color: #ffffff;
+}
+body #page div.plugin_slider_slide table.clause_diagram_subjectlast td {
+  background-color: transparent;
+  overflow: visible;
+  -moz-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
+  -webkit-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
+  -o-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
+  -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
+}
+body #page div.plugin_slider_slide table.clause_diagram_subjectlast td:first-child {
+  background-color: #93a1a1;
+  color: #ffffff;
+}
+body #page div.plugin_slider_slide table.clause_diagram_subjectlast td:nth-child(3) {
+  background-color: #ffc100;
+}
+body #page div.plugin_slider_slide table.clause_diagram_subjectlast td:nth-child(5) {
+  background-color: #93a1a1;
+  color: #ffffff;
+}
+body #page div.plugin_slider_slide table.clause_diagram_subjectlast td:nth-child(5) {
+  background-color: #ffc100;
 }
 body #page div.plugin_slider_slide table.subject_predicate_table tr:first-child td {
   background-color: transparent;
@@ -1235,8 +1238,9 @@ body #page div.plugin_slider_slide table.subject_predicate_table tr:first-child 
 }
 body #page div.plugin_slider_slide table.subject_predicate_table tr:first-child td:nth-child(3) {
   background-color: #93a1a1;
+  color: #ffffff;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table {
+body #page div.plugin_slider_slide table .nominative_bg_table {
   position: absolute;
   left: 50%;
   margin-left: -360px;
@@ -1253,34 +1257,34 @@ body #page div.plugin_slider_slide table.nominative_bg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr {
+body #page div.plugin_slider_slide table .nominative_bg_table tr {
   background-color: #a3cfee;
   border-top: 24px transparent solid;
   border-bottom: 24px transparent solid;
   height: 72px;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr td {
+body #page div.plugin_slider_slide table .nominative_bg_table tr td {
   background-color: transparent;
   padding: 0px;
   vertical-align: middle;
   height: 96px;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr td:first-child,
-body #page div.plugin_slider_slide table.nominative_bg_table tr td:last-child {
+body #page div.plugin_slider_slide table .nominative_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table .nominative_bg_table tr td:last-child {
   max-width: 0px;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(even) {
+body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(even) {
   background-color: transparent;
   height: 24px;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(even) td {
+body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(even) td {
   height: 24px;
   max-height: 24px;
 }
-body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(3) {
   background-color: #cee6f6;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table {
+body #page div.plugin_slider_slide table .genitive_bg_table {
   position: absolute;
   left: 50%;
   margin-left: -360px;
@@ -1297,40 +1301,40 @@ body #page div.plugin_slider_slide table.genitive_bg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr {
+body #page div.plugin_slider_slide table .genitive_bg_table tr {
   background-color: #a3cfee;
   border-top: 24px transparent solid;
   border-bottom: 24px transparent solid;
   height: 72px;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr td {
+body #page div.plugin_slider_slide table .genitive_bg_table tr td {
   background-color: transparent;
   padding: 0px;
   vertical-align: middle;
   height: 96px;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr td:first-child,
-body #page div.plugin_slider_slide table.genitive_bg_table tr td:last-child {
+body #page div.plugin_slider_slide table .genitive_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table .genitive_bg_table tr td:last-child {
   max-width: 0px;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(even) {
+body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(even) {
   background-color: transparent;
   height: 24px;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(even) td {
+body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(even) td {
   height: 24px;
   max-height: 24px;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(3) {
   background-color: #cee6f6;
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr {
+body #page div.plugin_slider_slide table .genitive_bg_table tr {
   background-color: rgba(133, 153, 0, 0.3);
 }
-body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(3) {
   background-color: rgba(133, 153, 0, 0.4);
 }
-body #page div.plugin_slider_slide table.nominative_fg_table {
+body #page div.plugin_slider_slide table .nominative_fg_table {
   z-index: 10;
   position: absolute;
   top: 120px;
@@ -1348,23 +1352,23 @@ body #page div.plugin_slider_slide table.nominative_fg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table.nominative_fg_table tr {
+body #page div.plugin_slider_slide table .nominative_fg_table tr {
   background-color: transparent;
 }
-body #page div.plugin_slider_slide table.nominative_fg_table tr td {
+body #page div.plugin_slider_slide table .nominative_fg_table tr td {
   height: 120px;
   padding: 0px;
   width: 180px;
   background-color: transparent;
   vertical-align: middle;
 }
-body #page div.plugin_slider_slide table.nominative_fg_table tr td:nth-child(even) {
+body #page div.plugin_slider_slide table .nominative_fg_table tr td:nth-child(even) {
   background-color: #1e6ea7;
 }
-body #page div.plugin_slider_slide table.nominative_fg_table tr td:nth-child(3) {
+body #page div.plugin_slider_slide table .nominative_fg_table tr td:nth-child(3) {
   width: 180px;
 }
-body #page div.plugin_slider_slide table.nominative_fg_table tr:nth-child(2) td:nth-child(2) {
+body #page div.plugin_slider_slide table .nominative_fg_table tr:nth-child(2) td:nth-child(2) {
   background-color: #268bd2;
 }
 body #page div.plugin_slider_slide table.genitive_fg_table {
