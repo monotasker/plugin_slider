@@ -201,7 +201,8 @@ body #page div.plugin_slider_slide{
                 }
             }
 
-        .nominative_bg_table          {position: absolute;
+        .nominative_bg_table
+        .nominative_plur_bg_table      {position: absolute;
                                         left: 50%;
                                         margin-left: -(@lineheight * 15);
                                         top: @lineheight3 * 2;
@@ -233,13 +234,15 @@ body #page div.plugin_slider_slide{
                 &:nth-child(3)         {background-color: lighten(@sol_blue, 40%);}
                 }
             }
-        .genitive_bg_table            {.nominative_bg_table;
+        .genitive_bg_table,             
+        .genitive_plur_bg_table        {.nominative_bg_table;
             tr                         {background-color: fade(@sol_green, 30%);
                 &:nth-child(3)         {background-color: fade(@sol_green, 40%);}
                 }
             }
 
-        .nominative_fg_table          {z-index: 10;
+        .nominative_fg_table,
+        .nominative_plur_fg_table      {z-index: 10;
                                         position: absolute;
                                         top:@lineheight3 * 2;
                                         left: 50%;
@@ -266,7 +269,8 @@ body #page div.plugin_slider_slide{
                     }
                 }
             }
-        &.genitive_fg_table            {.nominative_fg_table;
+        &.genitive_fg_table,
+        .genitive_plur_fg_table        {.nominative_fg_table;
             tr                         {
                 td:nth-child(even)     {background-color: darken(@sol_green, 10%);}
                 &:nth-child(2) td:nth-child(2)
