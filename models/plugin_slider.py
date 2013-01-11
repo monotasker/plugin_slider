@@ -29,9 +29,10 @@ db.plugin_slider_slides.theme.requires = IS_IN_DB(db,
                                     db.plugin_slider_themes._format,
                                     multiple=True)
 db.plugin_slider_slides.content.widget = lambda field, value: \
-        SQLFORM.widgets.text.widget(field, value)
-db.plugin_slider_slides.content.widget.append(JQMODAL().widget('image',
-                        'image_picker', 'plugin_widgets', 'image_picker.load'))
+                                        JQMODAL(field, value).textarea('image',
+                                                        'image_picker',
+                                                        'plugin_widgets',
+                                                        'image_picker.load')
 
 db.define_table('plugin_slider_decks',
     Field('deck_name', 'string'),
