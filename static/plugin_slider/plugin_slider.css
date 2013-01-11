@@ -175,6 +175,9 @@ form div {
   padding: 0;
 }
 /* modal dialogue *****************************************/
+/* custom modal mask */
+/* custom modal closer */
+/* custom modal dialog */
 .ui-resizable-handle {
   padding: 0;
 }
@@ -1245,7 +1248,8 @@ body #page div.plugin_slider_slide table.subject_predicate_table tr:first-child 
   background-color: #93a1a1;
   color: #ffffff;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table {
+body #page div.plugin_slider_slide table.nominative_bg_table,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table {
   position: absolute;
   left: 50%;
   margin-left: -360px;
@@ -1262,34 +1266,42 @@ body #page div.plugin_slider_slide table .nominative_bg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr {
+body #page div.plugin_slider_slide table.nominative_bg_table tr,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr {
   background-color: #a3cfee;
   border-top: 24px transparent solid;
   border-bottom: 24px transparent solid;
   height: 72px;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr td {
+body #page div.plugin_slider_slide table.nominative_bg_table tr td,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr td {
   background-color: transparent;
   padding: 0px;
   vertical-align: middle;
   height: 96px;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr td:first-child,
-body #page div.plugin_slider_slide table .nominative_bg_table tr td:last-child {
+body #page div.plugin_slider_slide table.nominative_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table.nominative_bg_table tr td:last-child,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr td:last-child {
   max-width: 0px;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(even) {
+body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(even),
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr:nth-child(even) {
   background-color: transparent;
   height: 24px;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(even) td {
+body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(even) td,
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr:nth-child(even) td {
   height: 24px;
   max-height: 24px;
 }
-body #page div.plugin_slider_slide table .nominative_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table.nominative_bg_table tr:nth-child(3),
+body #page div.plugin_slider_slide table.nominative_plur_bg_table tr:nth-child(3) {
   background-color: #cee6f6;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table {
+body #page div.plugin_slider_slide table.genitive_bg_table,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table {
   position: absolute;
   left: 50%;
   margin-left: -360px;
@@ -1306,41 +1318,50 @@ body #page div.plugin_slider_slide table .genitive_bg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr {
+body #page div.plugin_slider_slide table.genitive_bg_table tr,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr {
   background-color: #a3cfee;
   border-top: 24px transparent solid;
   border-bottom: 24px transparent solid;
   height: 72px;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr td {
+body #page div.plugin_slider_slide table.genitive_bg_table tr td,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr td {
   background-color: transparent;
   padding: 0px;
   vertical-align: middle;
   height: 96px;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr td:first-child,
-body #page div.plugin_slider_slide table .genitive_bg_table tr td:last-child {
+body #page div.plugin_slider_slide table.genitive_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr td:first-child,
+body #page div.plugin_slider_slide table.genitive_bg_table tr td:last-child,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr td:last-child {
   max-width: 0px;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(even) {
+body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(even),
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr:nth-child(even) {
   background-color: transparent;
   height: 24px;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(even) td {
+body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(even) td,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr:nth-child(even) td {
   height: 24px;
   max-height: 24px;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(3),
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr:nth-child(3) {
   background-color: #cee6f6;
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr {
+body #page div.plugin_slider_slide table.genitive_bg_table tr,
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr {
   background-color: rgba(133, 153, 0, 0.3);
 }
-body #page div.plugin_slider_slide table .genitive_bg_table tr:nth-child(3) {
+body #page div.plugin_slider_slide table.genitive_bg_table tr:nth-child(3),
+body #page div.plugin_slider_slide table.genitive_plur_bg_table tr:nth-child(3) {
   background-color: rgba(133, 153, 0, 0.4);
 }
-body #page div.plugin_slider_slide table .nominative_fg_table,
-body #page div.plugin_slider_slide table .nominative_plur_fg_table {
+body #page div.plugin_slider_slide table.nominative_fg_table,
+body #page div.plugin_slider_slide table.nominative_plur_fg_table {
   z-index: 10;
   position: absolute;
   top: 120px;
@@ -1358,31 +1379,32 @@ body #page div.plugin_slider_slide table .nominative_plur_fg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table .nominative_fg_table tr,
-body #page div.plugin_slider_slide table .nominative_plur_fg_table tr {
+body #page div.plugin_slider_slide table.nominative_fg_table tr,
+body #page div.plugin_slider_slide table.nominative_plur_fg_table tr {
   background-color: transparent;
 }
-body #page div.plugin_slider_slide table .nominative_fg_table tr td,
-body #page div.plugin_slider_slide table .nominative_plur_fg_table tr td {
+body #page div.plugin_slider_slide table.nominative_fg_table tr td,
+body #page div.plugin_slider_slide table.nominative_plur_fg_table tr td {
   height: 120px;
   padding: 0px;
   width: 180px;
   background-color: transparent;
   vertical-align: middle;
 }
-body #page div.plugin_slider_slide table .nominative_fg_table tr td:nth-child(even),
-body #page div.plugin_slider_slide table .nominative_plur_fg_table tr td:nth-child(even) {
+body #page div.plugin_slider_slide table.nominative_fg_table tr td:nth-child(even),
+body #page div.plugin_slider_slide table.nominative_plur_fg_table tr td:nth-child(even) {
   background-color: #1e6ea7;
 }
-body #page div.plugin_slider_slide table .nominative_fg_table tr td:nth-child(3),
-body #page div.plugin_slider_slide table .nominative_plur_fg_table tr td:nth-child(3) {
+body #page div.plugin_slider_slide table.nominative_fg_table tr td:nth-child(3),
+body #page div.plugin_slider_slide table.nominative_plur_fg_table tr td:nth-child(3) {
   width: 180px;
 }
-body #page div.plugin_slider_slide table .nominative_fg_table tr:nth-child(2) td:nth-child(2),
-body #page div.plugin_slider_slide table .nominative_plur_fg_table tr:nth-child(2) td:nth-child(2) {
+body #page div.plugin_slider_slide table.nominative_fg_table tr:nth-child(2) td:nth-child(2),
+body #page div.plugin_slider_slide table.nominative_plur_fg_table tr:nth-child(2) td:nth-child(2) {
   background-color: #268bd2;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table {
+body #page div.plugin_slider_slide table.genitive_fg_table,
+body #page div.plugin_slider_slide table.genitive_plur_fg_table {
   z-index: 10;
   position: absolute;
   top: 120px;
@@ -1400,29 +1422,36 @@ body #page div.plugin_slider_slide table.genitive_fg_table {
   -ms-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(270, 270, 270, 0.5);
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr {
+body #page div.plugin_slider_slide table.genitive_fg_table tr,
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr {
   background-color: transparent;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr td {
+body #page div.plugin_slider_slide table.genitive_fg_table tr td,
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr td {
   height: 120px;
   padding: 0px;
   width: 180px;
   background-color: transparent;
   vertical-align: middle;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(even) {
+body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(even),
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr td:nth-child(even) {
   background-color: #1e6ea7;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(3) {
+body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(3),
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr td:nth-child(3) {
   width: 180px;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr:nth-child(2) td:nth-child(2) {
+body #page div.plugin_slider_slide table.genitive_fg_table tr:nth-child(2) td:nth-child(2),
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr:nth-child(2) td:nth-child(2) {
   background-color: #268bd2;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(even) {
+body #page div.plugin_slider_slide table.genitive_fg_table tr td:nth-child(even),
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr td:nth-child(even) {
   background-color: #596600;
 }
-body #page div.plugin_slider_slide table.genitive_fg_table tr:nth-child(2) td:nth-child(2) {
+body #page div.plugin_slider_slide table.genitive_fg_table tr:nth-child(2) td:nth-child(2),
+body #page div.plugin_slider_slide table.genitive_plur_fg_table tr:nth-child(2) td:nth-child(2) {
   background-color: #859900;
 }
 body #page div.plugin_slider_slide table.letter_table {
