@@ -1,56 +1,56 @@
  @import "../../../../static/plugin_framework/framework";
 
 .plugin_slider_frame{
-    background-color:@chalk;
+    /*background-color:@chalk;*/
     width:100%;
     height:100%;
 }
 
 .plugin_slider_navlink         {position:absolute;
                                 top:50%;
-                                width:@lineheight3;
-                                height:@lineheight3;
-                                line-height: @lineheight3;
+                                width:@baseLineHeight * 2;
+                                height:@baseLineHeight * 2;
+                                line-height: @baseLineHeight * 2;
                                 display:block;
                                 background-color: @sol_charcoal;
-                                color:#fff;
+                               color:#fff;
                                 opacity:0.6;
-                                .icon-only;
-                                font-size:@typeheight2;
-                                padding:0 @lineheight;
-                                .inset-text();
+                                /*.icon-only;*/
+                                font-size:@baseFontSize * 1.5;
+                                padding:0 @baseLineHeight;
+                                /*.inset-text;*/
                                 .transition();
     &:hover                    {.transition();}
     }
 
-.plugin_slider_prevlink        {left:-@lineheight;
+.plugin_slider_prevlink        {left:-@baseLineHeight;
                                 .plugin_slider_navlink;
-                                .icon-back;
+                                /*.icon-back;*/
                                 text-align: right;
-                                .border-radius(0, @typeheight, @typeheight, 0);
+                                .border-radius(0, @baseFontSize, @baseFontSize, 0);
     &:hover                    {left:0;}
     }
-.plugin_slider_nextlink        {right:-@lineheight;
+.plugin_slider_nextlink        {right:-@baseLineHeight;
                                 .plugin_slider_navlink;
                                 .icon-next;
                                 text-align: left;
-                                .border-radius(@typeheight, 0, 0, @typeheight);
+                                .border-radius(@baseFontSize, 0, 0, @baseFontSize);
     &:hover                    {right:0;}
     }
 
 
 div.plugin_slider_slidemenu    {display:block;
                                 position:absolute;
-                                bottom:-500px + @lineheight;
+                                bottom:-500px + @baseLineHeight;
                                 left:50%;
                                 margin-left: -250px;
                                 width:500px;
                                 height:500px;
                                 max-height:500px;
                                 background-color:fadeout(@sol_charcoal, 10%);
-                                font-size:@typeheight;
-                                color:@chalk;
-                                .border-radius(@typeheight, @typeheight, 0, 0);
+                                font-size:@baseFontSize;
+                                /*color:@chalk;*/
+                                .border-radius(@baseFontSize, @baseFontSize, 0, 0);
                                 .transition();
                                 z-index:99;
     &:hover,
@@ -64,14 +64,14 @@ div.plugin_slider_slidemenu    {display:block;
         &:hover                {color:@white;
                                 .text-shadow();}
         &.plugin_slider_new    {.label_new();}
-        &.plugin_slider_active {color: @chalk;}
+        /*&.plugin_slider_active {color: @chalk;}*/
         }
-    ul                         {padding:0 @lineheight;
+    ul                         {padding:0 @baseLineHeight;
                                 overflow:auto;
-                                height:500px - (@lineheight * 2);
+                                height:500px - (@baseLineHeight * 2);
         li                     {
             span               {color:@sol_yellow;
-                                padding:0 0 0 @typeheight;
+                                padding:0 0 0 @baseFontSize;
                                 font-style: italic;}
             }
         }
@@ -84,19 +84,19 @@ div.plugin_slider_slidemenu    {display:block;
 }
 
 body #page div.plugin_slider_slide{
-    background-color: @chalk;
+    /*background-color: @chalk;*/
     .Greek;
     width:100%;
     height:100%;
     padding-top:0;
-    padding-left:@lineheight3 * 2;
-    padding-right:@lineheight3 * 2;
-    padding-bottom: @lineheight * 2;
+    padding-left:@baseLineHeight * 2 * 2;
+    padding-right:@baseLineHeight * 2 * 2;
+    padding-bottom: @baseLineHeight * 2;
     z-index:99;
 
     h1 {
         display:block;
-        font-size: @typeheight2;
+        font-size: @baseFontSize * 1.5;
         color:@sol_orange;
         margin:0 auto;
         text-align: center;
@@ -107,14 +107,14 @@ body #page div.plugin_slider_slide{
     ul                                 {font-family:Ubuntu, Calibri;
                                         list-style-type:disc;
                                         list-style-position: outside;
-                                        font-size:@typeheight2;
+                                        font-size:@baseFontSize * 1.5;
                                         color:@dusky-blue2;
-                                        line-height:@lineheight2;
+                                        line-height:@baseLineHeight * 1.5;
                                         margin:0;
 
-        ul                             {font-size:@typeheight * 1.25;
+        ul                             {font-size:@baseFontSize * 1.25;
                                         color: darken(@sol_beige, 35%);
-                                        padding-left:@lineheight;
+                                        padding-left:@baseLineHeight;
                                         /*.collapsible_parent();*/
             ul                         {color: @sol_orange;
                                         // .collapsible_child();
@@ -134,11 +134,11 @@ body #page div.plugin_slider_slide{
                                         text-align: center;
                                         color: @cinnamon;
                                         .Greek;
-                                        font-size: @typeheight2;
-                                        margin: (@typeheight/2) auto;
+                                        font-size: @baseFontSize * 1.5;
+                                        margin: (@baseFontSize/2) auto;
         tr                             {
             td                         {background-color: @sol_beige;
-                                        padding: (@typeheight/2) @typeheight}
+                                        padding: (@baseFontSize/2) @baseFontSize}
             &.even                     {
                 td                     {background-color: darken(@sol_beige, 2%)}
                 }
@@ -204,9 +204,9 @@ body #page div.plugin_slider_slide{
         &.nominative_bg_table,
         &.nominative_plur_bg_table      {position: absolute;
                                         left: 50%;
-                                        margin-left: -(@lineheight * 15);
-                                        top: @lineheight3 * 2;
-                                        width: @lineheight * 30;
+                                        margin-left: -(@baseLineHeight * 15);
+                                        top: @baseLineHeight * 2 * 2;
+                                        width: @baseLineHeight * 30;
                                         background-color: transparent;
                                         color: @white;
                                         z-index: 1;
@@ -215,21 +215,21 @@ body #page div.plugin_slider_slide{
                                         .inset-text();
 
             tr                         {background-color: lighten(@sol_blue, 30%);
-                                        border-top: @lineheight transparent solid;
-                                        border-bottom: @lineheight transparent solid;
-                                        height:@lineheight * 3;
+                                        border-top: @baseLineHeight transparent solid;
+                                        border-bottom: @baseLineHeight transparent solid;
+                                        height:@baseLineHeight * 3;
 
                 td                     {background-color: transparent;
                                         padding:0px;
                                         vertical-align: middle;
-                                        height:@lineheight * 4;
+                                        height:@baseLineHeight * 4;
                     &:first-child,
                     &:last-child       {max-width:0px;}
                     }
                 &:nth-child(even)      {background-color: transparent;
-                                        height:@lineheight;
-                    td                 {height: @lineheight;
-                                        max-height: @lineheight;}
+                                        height:@baseLineHeight;
+                    td                 {height: @baseLineHeight;
+                                        max-height: @baseLineHeight;}
                     }
                 &:nth-child(3)         {background-color: lighten(@sol_blue, 40%);}
                 }
@@ -251,25 +251,25 @@ body #page div.plugin_slider_slide{
         &.nominative_fg_table,
         &.nominative_plur_fg_table      {z-index: 10;
                                         position: absolute;
-                                        top:@lineheight3 * 2;
+                                        top:@baseLineHeight * 2 * 2;
                                         left: 50%;
-                                        margin-left: -(@lineheight * 15);
+                                        margin-left: -(@baseLineHeight * 15);
                                         background-color: transparent;
                                         border:0px solid transparent;
                                         color: @white;
-                                        font-size: @typeheight3;
-                                        width: @lineheight * 30;
+                                        font-size: @baseFontSize * 2;
+                                        width: @baseLineHeight * 30;
                                         border-spacing: 0px;
                                         .inset-text();
 
             tr                         {background-color: transparent;
-                td                     {height: @lineheight3 * 2;
+                td                     {height: @baseLineHeight * 2 * 2;
                                         padding: 0px;
-                                        width: @lineheight3 * 3;
+                                        width: @baseLineHeight * 2 * 3;
                                         background-color: transparent;
                                         vertical-align: middle;
                     &:nth-child(even)  {background-color: darken(@sol_blue, 10%);}
-                    &:nth-child(3)     {width: @lineheight3 * 3;}
+                    &:nth-child(3)     {width: @baseLineHeight * 2 * 3;}
                     }
                 &:nth-child(2)         {
                     td:nth-child(2)    {background-color: @sol_blue;}
@@ -296,13 +296,13 @@ body #page div.plugin_slider_slide{
 
 
 
-        &.letter_table                 {padding:@typeheight;
+        &.letter_table                 {padding:@baseFontSize;
                                         text-align:center;
-                                        margin:@typeheight auto;
+                                        margin:@baseFontSize auto;
 
             thead                      {font-size:4em;
                                         line-height:1.25em;
-                td                     {padding: @typeheight .5em;
+                td                     {padding: @baseFontSize .5em;
                                         color: @cinnamon;
                     &:first-child,
                     &:last-child       {display:none;}

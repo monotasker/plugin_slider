@@ -8,8 +8,9 @@ import datetime
 #js file necessary for AjaxSelect widget
 response.files.insert(5, URL('static',
                           'plugin_ajaxselect/plugin_ajaxselect.js'))
-response.files.append(URL('static', 'plugin_ajaxselect/plugin_ajaxselect.css'))
-response.files.append(URL('static', 'plugin_slider/plugin_slider.css'))
+# CSS files imported directly into framework.less
+#response.files.append(URL('static', 'plugin_ajaxselect/plugin_ajaxselect.css'))
+#response.files.append(URL('static', 'plugin_slider/plugin_slider.css'))
 
 db.define_table('plugin_slider_themes',
                 Field('theme_name', 'string'),
