@@ -20,6 +20,7 @@ db.define_table('plugin_slider_themes',
 
 db.define_table('plugin_slider_slides',
                 Field('slide_name', 'string'),
+                Field('content', 'text'),
                 Field('slide_content', 'text'),
                 Field('theme', 'list:reference plugin_slider_themes'),
                 Field('updated', 'datetime', default=datetime.datetime.utcnow()),

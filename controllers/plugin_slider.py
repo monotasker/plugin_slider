@@ -45,12 +45,12 @@ def start_deck():
     slidelist = UL(_class='plugin_slider_decklist')
     for d in deckorder:
         theslide = db.plugin_slider_slides[d]
-        badges = db((db.tags.slides.contains(theslide.id))
-                      & (db.badges.tag == db.tags.id)).select()
+        badges = db((db.tags.slides.contains(theslide.id)) &
+                    (db.badges.tag == db.tags.id)).select()
         slidelist.append(LI(A(theslide.slide_name,
                             _href=URL('plugin_slider',
-                                        'show_slide',
-                                        args=[theslide.id]),
+                                      'show_slide',
+                                      args=[theslide.id]),
                             cid='plugin_slider_slide')))
         for b in badges:
             if debug: print b.badges.badge_name
@@ -75,7 +75,6 @@ def show_slide():
     Returns a dictionary with a single item, 'content', containing a
     web2py MARKMIN helper object with the text contents of the slide.
     """
-    debug = False
     try:
         sid = request.args[0]
         session.plugin_slider_sid = sid
@@ -89,8 +88,11 @@ def show_slide():
         return dict(content='Sorry, no slide was requested.')
 
     slide = db.plugin_slider_slides[int(sid)]
-    content = MARKMIN(slide.content)
-    if debug: print 'show_slide: content =', content
+    print 'sid:', sid
+    print 'slide:', slide
+    content = MARKMIN(slide.slide_content)
+    print slide.slide_content
+    print content
 
     return dict(content=content)
 
