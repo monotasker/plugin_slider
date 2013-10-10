@@ -7,7 +7,7 @@
 }
 
 .plugin_slider_navlink         {position:absolute;
-                                top:50%;
+                                top:200px;
                                 width: @baseLineHeight * 2;
                                 height: @baseLineHeight * 2;
                                 line-height: @baseLineHeight * 2;
@@ -15,10 +15,8 @@
                                 background-color: @black;
                                 color: @white;
                                 opacity:0.6;
-                                /*.icon-only;*/
-                                font-size:@baseFontSize * 1.5;
+                                font-size:@baseFontSize;
                                 padding:0 @baseLineHeight;
-                                /*.inset-text;*/
                                 .transition();
     &:hover                    {
                                 .transition();
@@ -30,6 +28,7 @@
                                 /*.icon-back;*/
                                 text-align: right;
                                 .border-radius(0, @baseFontSize, @baseFontSize, 0);
+                                z-index: 999;
     &:hover                    {left:0;}
 }
 .plugin_slider_nextlink        {right:-@baseLineHeight;
@@ -37,6 +36,7 @@
                                 /*.icon-next;*/
                                 text-align: left;
                                 .border-radius(@baseFontSize, 0, 0, @baseFontSize);
+                                z-index: 999;
     &:hover                    {right:0;}
 }
 
@@ -47,7 +47,7 @@ div.plugin_slider_slidemenu    {display:block;
                                 margin-left: -250px;
                                 width:500px;
                                 height:400px;
-                                max-height:500px;
+                                max-height:400px;
                                 background-color:fadeout(@sol_charcoal, 10%);
                                 font-size:@baseFontSize;
                                 color:@palletteBG;
@@ -76,7 +76,7 @@ div.plugin_slider_slidemenu    {display:block;
     }
     ul                         {padding:0 @baseLineHeight;
                                 overflow:auto;
-                                height:500px - (@baseLineHeight * 2);
+                                height:350px;
         li                     {
             span               {color:@sol_yellow;
                                 padding:0 0 0 @baseFontSize;
@@ -108,18 +108,15 @@ body #page div.plugin_slider_slide{
                                         color: darken(@accent2, 10%);
                                         margin:0;
                                         padding: (@baseLineHeight / 2) 0 (@baseLineHeight * 4) (@baseLineHeight * 4);
-        li                             {font-size:@baseFontSize * 1.5;
-                                        line-height:@baseLineHeight * 1.5;
-        }
-
-        ul                             {font-size:@baseFontSize * 1.25;
-                                        line-height: @baseLineHeight * 1.25;
-                                        color: darken(@pallette2, 35%);
-                                        padding-left:@baseLineHeight;
-                                        padding-bottom: (@baseLineHeight / 2);
-            ul                         {color: darken(@pallette3, 35%);
-                                        font-size: @baseFontSize;
+        li                             {font-size:@baseFontSize * 1.25;
+                                        line-height:@baseLineHeight * 1.25;} 
+        ul                             {padding-left:@baseLineHeight;
+                                        padding-bottom: (@baseLineHeight / 4);
+            li                         {font-size:@baseFontSize;
                                         line-height: @baseLineHeight;
+                                        color: darken(@pallette2, 20%);}
+            ul                         {
+                li                     {color: lighten(@sol_orange, 10%);}
             }
         }
     }

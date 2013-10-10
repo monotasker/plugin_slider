@@ -90,7 +90,14 @@ def show_slide():
     slide = db.plugin_slider_slides[int(sid)]
     print 'sid:', sid
     print 'slide:', slide
-    content = MARKMIN(slide.slide_content)
+    images = db(db.images.id > 0).select().as_list()
+    audios = db(db.audio.id > 0).select().as_list()
+    # custom markmin tags
+    custom_mm = dict(img=lambda text: '<img src="{}" />'.format([i for i in images
+                                       if i['title'] == text][0]['image']),
+                     audio=lambda text: [i for i in audios
+                                         if i['title'] == text][0]['audio'])
+    content = MARKMIN(slide.slide_content, extra=custom_mm)
     print slide.slide_content
     print content
 

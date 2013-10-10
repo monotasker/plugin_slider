@@ -12,6 +12,8 @@ response.files.insert(5, URL('static',
 #response.files.append(URL('static', 'plugin_ajaxselect/plugin_ajaxselect.css'))
 #response.files.append(URL('static', 'plugin_slider/plugin_slider.css'))
 
+# db table definitions
+
 db.define_table('plugin_slider_themes',
                 Field('theme_name', 'string'),
                 Field('description', 'text'),
@@ -20,7 +22,6 @@ db.define_table('plugin_slider_themes',
 
 db.define_table('plugin_slider_slides',
                 Field('slide_name', 'string'),
-                Field('content', 'text'),
                 Field('slide_content', 'text'),
                 Field('theme', 'list:reference plugin_slider_themes'),
                 Field('updated', 'datetime', default=datetime.datetime.utcnow()),
