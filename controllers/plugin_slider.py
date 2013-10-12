@@ -93,8 +93,12 @@ def show_slide():
     images = db(db.images.id > 0).select().as_list()
     audios = db(db.audio.id > 0).select().as_list()
     # custom markmin tags
-    custom_mm = dict(img=lambda text: '<img src="{}" />'.format([i for i in images
-                                       if i['title'] == text][0]['image']),
+    custom_mm = dict(img=lambda text: '<img class="center" src="{}" />'.format(URL('static/images', [i for i in images
+                                       if i['title'] == text][0]['image'])),
+                     img_r=lambda text: '<img class="pull-right" src="{}" />'.format(URL('static/images', [i for i in images
+                                       if i['title'] == text][0]['image'])),
+                     img_l=lambda text: '<img src="{}" class="pull-left" />'.format(URL('static/images', [i for i in images
+                                       if i['title'] == text][0]['image'])),
                      audio=lambda text: [i for i in audios
                                          if i['title'] == text][0]['audio'])
     content = MARKMIN(slide.slide_content, extra=custom_mm)

@@ -1657,7 +1657,8 @@ body #page div.plugin_slider_slide ul{font-family:Ubuntu,Calibri,sans-serif;colo
 body #page div.plugin_slider_slide ul ul{padding-left:24px;padding-bottom:6px;}body #page div.plugin_slider_slide ul ul li{font-size:16px;line-height:24px;color:#b5ac70;}
 body #page div.plugin_slider_slide ul ul ul li{color:#e8632c;}
 body #page div.plugin_slider_slide ol{font-family:Ubuntu, Calibri;font-size:1.5em;color:#268bd2;line-height:2em;margin:0;}
-body #page div.plugin_slider_slide img{margin-right:48px;}
+body #page div.plugin_slider_slide img{margin:0 auto;display:block;}body #page div.plugin_slider_slide img.pull-right{margin-right:48px;}
+body #page div.plugin_slider_slide img.pull-left{margin-left:48px;}
 body #page div.plugin_slider_slide table{background-color:transparent;border-collapse:separate;border-spacing:0;text-align:center;color:#845852;font-family:SBLGreekRegular,Gentium,'Galatia SIL',Palatino,'Palatino Linotype','Times New Roman';font-size:1.25em;direction:ltr;font-size:24px;margin:8px auto;}body #page div.plugin_slider_slide table tr td{background-color:#eee8d5;padding:8px 16px;}
 body #page div.plugin_slider_slide table tr.even td{background-color:#ebe4ce;}
 body #page div.plugin_slider_slide table.dark_col_2 tr td:nth-child(2){background-color:#dfd4b1;color:#ffffff;}

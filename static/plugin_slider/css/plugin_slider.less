@@ -126,7 +126,10 @@ body #page div.plugin_slider_slide{
                                         line-height:2em;
                                         margin:0;
     }
-    img                                {margin-right: @baseLineHeight * 2;
+    img                                {margin: 0 auto;
+                                        display: block;
+        &.pull-right                   {margin-right: @baseLineHeight * 2;}
+        &.pull-left                    {margin-left: @baseLineHeight * 2;}
     }
     table                              {background-color: transparent;
                                         border-collapse: separate;
