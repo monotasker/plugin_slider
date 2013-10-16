@@ -89,11 +89,12 @@ div.plugin_slider_slidemenu    {display:block;
     height:100%;
 }
 
-body #page div.plugin_slider_slide{
+body #main.listing #page div.plugin_slider_slide{
     .Greek;
     width:100%;
     height:100%;
     z-index:99;
+    padding-bottom: (@baseLineHeight * 2);
 
     h1 {
         display:block;
@@ -106,15 +107,18 @@ body #page div.plugin_slider_slide{
     }
     ul                                 {font-family:Ubuntu, Calibri, sans-serif;
                                         color: darken(@accent2, 10%);
-                                        margin:0;
-                                        padding: (@baseLineHeight / 2) 0 (@baseLineHeight * 4) (@baseLineHeight * 4);
+                                        margin:0 (@baseLineHeight * 2) 0 0;
+                                        padding-right: 0;
+                                        padding-left: (@baseLineHeight * 4);
         li                             {font-size:@baseFontSize * 1.25;
-                                        line-height:@baseLineHeight * 1.25;} 
+                                        line-height:@baseLineHeight * 1.25;
+        } 
         ul                             {padding-left:@baseLineHeight;
-                                        padding-bottom: (@baseLineHeight / 4);
+                                        padding-bottom: (@baseLineHeight / 2);
             li                         {font-size:@baseFontSize;
                                         line-height: @baseLineHeight;
-                                        color: darken(@pallette2, 20%);}
+                                        color: darken(@pallette2, 20%);
+            }
             ul                         {
                 li                     {color: lighten(@sol_orange, 10%);}
             }
@@ -174,7 +178,32 @@ body #page div.plugin_slider_slide{
                 }
             }
         }
-        &.header_col1_dark             {}
+        &.header_col1_dark             {
+        }
+        &.letter_table                 {padding:@baseFontSize;
+                                        text-align:center;
+                                        margin:@baseFontSize auto;
+            thead tr                   {font-size:4em;
+                                        line-height:1.25em;
+                td                     {padding: @baseFontSize .5em;
+                                        color: @cinnamon;
+                                        background-color: @pallette1;
+                                        text-align:center;
+                    &:first-child,
+                    &:last-child       {display:none;}
+                }
+            }
+            tbody tr                   {font-size:1.5em;
+                                        border-top:1px solid #fff;
+                td                     {background-color: @pallette2;
+                                        color:@white;
+                                        .text-shadow();
+                                        text-align:center;
+                    &:first-child,
+                    &:last-child       {display:none;}
+                }
+            }
+        }
     }
 }
 
@@ -200,114 +229,6 @@ body #page div.plugin_slider_slide{
                                 color: @white;}
             &:nth-child(3)     {background-color: @sol_grey4;
                                 color: @white;}
-        }
-    }
-}
-.nominative_bg_table,
-.nominative_plur_bg_table      {position: absolute;
-                                left: 50%;
-                                margin-left: -(@baseLineHeight * 15);
-                                top: @baseLineHeight * 2 * 2;
-                                width: @baseLineHeight * 30;
-                                background-color: transparent;
-                                color: @white;
-                                z-index: 1;
-                                border:1px transparent solid;
-                                border-collapse: collapse;
-                                .inset-text();
-
-    tr                         {background-color: lighten(@sol_blue, 30%);
-                                border-top: @baseLineHeight transparent solid;
-                                border-bottom: @baseLineHeight transparent solid;
-                                height:@baseLineHeight * 3;
-        td                     {background-color: transparent;
-                                padding:0px;
-                                vertical-align: middle;
-                                height:@baseLineHeight * 4;
-            &:first-child,
-            &:last-child       {max-width:0px;}
-        }
-        &:nth-child(even)      {background-color: transparent;
-                                height:@baseLineHeight;
-            td                 {height: @baseLineHeight;
-                                max-height: @baseLineHeight;}
-        }
-        &:nth-child(3)         {background-color: lighten(@sol_blue, 40%);}
-    }
-}
-.genitive_bg_table,             
-.genitive_plur_bg_table       {.nominative_bg_table;
-    tr                         {background-color: fade(@sol_green, 30%);
-        &:nth-child(3)         {background-color: fade(@sol_green, 40%);}
-    }
-}
-.accusative_bg_table,             
-.accusative_plur_bg_table     {.nominative_bg_table;
-    tr                         {background-color: fade(@sol_orange, 30%);
-        &:nth-child(3)         {background-color: fade(@sol_orange, 40%);}
-    }
-}
-.nominative_fg_table,
-.nominative_plur_fg_table      {z-index: 10;
-                                position: absolute;
-                                top:@baseLineHeight * 2 * 2;
-                                left: 50%;
-                                margin-left: -(@baseLineHeight * 15);
-                                background-color: transparent;
-                                border:0px solid transparent;
-                                color: @white;
-                                font-size: @baseFontSize * 2;
-                                width: @baseLineHeight * 30;
-                                border-spacing: 0px;
-                                .inset-text();
-    tr                         {background-color: transparent;
-        td                     {height: @baseLineHeight * 2 * 2;
-                                padding: 0px;
-                                width: @baseLineHeight * 2 * 3;
-                                background-color: transparent;
-                                vertical-align: middle;
-            &:nth-child(even)  {background-color: darken(@sol_blue, 10%);}
-            &:nth-child(3)     {width: @baseLineHeight * 2 * 3;}
-        }
-        &:nth-child(2)         {
-            td:nth-child(2)    {background-color: @sol_blue;}
-        }
-    }
-}
-.genitive_fg_table,
-.genitive_plur_fg_table        {.nominative_fg_table;
-    tr                         {
-        td:nth-child(even)     {background-color: darken(@sol_green, 10%);}
-        &:nth-child(2) td:nth-child(2)
-                               {background-color: @sol_green;}
-    }
-}
-.accusative_fg_table,
-.accusative_plur_fg_table     {.nominative_fg_table;
-    tr                         {
-        td:nth-child(even)     {background-color: darken(@sol_orange, 10%);}
-        &:nth-child(2) td:nth-child(2)
-                               {background-color: @sol_orange;}
-    }
-}
-.letter_table                 {padding:@baseFontSize;
-                                text-align:center;
-                                margin:@baseFontSize auto;
-    thead                      {font-size:4em;
-                                line-height:1.25em;
-        td                     {padding: @baseFontSize .5em;
-                                color: @cinnamon;
-            &:first-child,
-            &:last-child       {display:none;}
-        }
-    }
-    tbody                      {font-size:1.5em;
-                                border-top:1px solid #fff;
-        td                     {background-color: darken(@sol_beige, 10%);
-                                color:@white;
-                                .text-shadow();
-            &:first-child,
-            &:last-child       {display:none;}
         }
     }
 }
