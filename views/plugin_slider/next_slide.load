@@ -1,1 +1,4 @@
+{{from plugin_widgets import ROLE, MODAL}}
+{{=ROLE(MODAL('edit slide', 'edit slide', editform))}}
 {{=content}}
+

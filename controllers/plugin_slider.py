@@ -1,5 +1,6 @@
+from pprint import pprint
 if 0:
-    from gluon import current, UL, LI, DIV, A, URL, MARKMIN, SPAN
+    from gluon import current, UL, LI, DIV, A, URL, MARKMIN, SPAN, SQLFORM
     request, session, db = current.request, current.session, current.db
     response = current.response
 
@@ -102,10 +103,45 @@ def show_slide():
                      audio=lambda text: [i for i in audios
                                          if i['title'] == text][0]['audio'])
     content = MARKMIN(slide.slide_content, extra=custom_mm)
-    print slide.slide_content
-    print content
 
-    return dict(content=content)
+    return dict(content=content,
+                editform=editform())
+
+
+def editform():
+    """
+    Return a sqlform object for editing the specified slide.
+    """
+    sid = session.plugin_slider_sid
+    form = SQLFORM(db.plugin_slider_slides, sid,
+                   separator='',
+                   deletable=True,
+                   showid=True)
+
+    if form.process(formname='plugin_slider_slides/{}'.format(sid)).accepted:
+        #the_url = URL('plugin_slider', 'show_slide.load')
+        #response.js = "window.setTimeout(" \
+                      #"web2py_component('{}', " \
+                      #"'plugin_slider_slide'), 500);".format(the_url)
+        response.flash = 'The changes were recorded successfully.'
+        print '\n\nform processed'
+    elif form.errors:
+        print '\n\nlistandedit form errors:'
+        pprint({k: v for k, v in form.errors.iteritems()})
+        print '\n\nlistandedit form vars'
+        pprint({k: v for k, v in form.vars.iteritems()})
+        print '\n\nlistandedit request vars'
+        pprint({k: v for k, v in request.vars.iteritems()})
+        response.flash = 'Sorry, there was an error processing ' \
+                         'the form. The changes have not been recorded.'
+
+    else:
+        print '\n\nform not processed, but no errors'
+        pprint({k: v for k, v in form.vars.iteritems()})
+        pprint({k: v for k, v in request.vars.iteritems()})
+        pass
+
+    return form
 
 
 def next_slide():
