@@ -54,10 +54,9 @@ db.plugin_slider_decks.theme.requires = IS_IN_DB(db,
                                     multiple=True)
 db.plugin_slider_decks.deck_slides.widget = lambda field, value: \
                                     AjaxSelect(field, value,
-                                               'plugin_slider_slides',
                                                refresher=True,
                                                multi='basic',
-                                               lister='editlinks',
+                                               lister='simple',
                                                sortable='true'
                                                ).widget()
 
