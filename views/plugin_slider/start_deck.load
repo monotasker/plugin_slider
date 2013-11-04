@@ -1,7 +1,8 @@
 <div id=plugin_slider_{{=did}} class='plugin_slider_frame'>
     <div class='plugin_slider_frameheader'>
         <span>deck {{=did}}</span> 
-    
+        {{=ROLE(MODAL('Add new slide', 'Add new slide', LOAD('plugin_listandedit', 'edit.load', args='plugin_slider_slides', ajax=True)))}}
+        <a class='plugin_slider_slide_adder'>Add new slide</span>
     </div>
 
     {{=A(SPAN(u'\u200b', _class='accessible icon-chevron-right'),
