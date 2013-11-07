@@ -1,3 +1,12 @@
+"""
+A web2py plugin for creating and displaying ajax-driven html slide shows.
+
+Written by Ian W. Scott (monotasker)
+
+This module file contains most of the business logic.
+
+"""
+
 from plugin_ajaxselect import AjaxSelect
 from plugin_widgets import JQMODAL
 if 0:
@@ -24,7 +33,8 @@ db.define_table('plugin_slider_slides',
                 Field('slide_name', 'string'),
                 Field('slide_content', 'text'),
                 Field('theme', 'list:reference plugin_slider_themes'),
-                Field('updated', 'datetime', default=datetime.datetime.utcnow()),
+                Field('updated', 'datetime', default=datetime.datetime.utcnow()
+                      ),
                 format='%(slide_name)s'
                 )
 db.plugin_slider_slides.theme.requires = IS_IN_DB(db,

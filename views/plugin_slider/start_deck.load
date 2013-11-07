@@ -1,3 +1,5 @@
+{{from plugin_widgets import ROLE, MODAL}}
+
 <div id=plugin_slider_{{=did}} class='plugin_slider_frame'>
     <div class='plugin_slider_frameheader'>
         <span>deck {{=did}}</span> 
