@@ -57,6 +57,10 @@ db.plugin_slider_decks.deck_slides.widget = lambda field, value: \
                                                refresher=True,
                                                multi='basic',
                                                lister='simple',
+<<<<<<< HEAD
+=======
+                                               orderby='slide_name',
+>>>>>>> 2873fb8011eec6ef452ecef417085968ae552396
                                                sortable='true'
                                                ).widget()
 
