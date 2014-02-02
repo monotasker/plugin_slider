@@ -1,4 +1,5 @@
 {{from plugin_widgets import ROLE, MODAL}}
+{{mystate = '' if request.args else 'initial_state'}}
 
 <div id=plugin_slider_{{=did}} class='plugin_slider_frame'>
     <div class='plugin_slider_frameheader'>
@@ -17,9 +18,39 @@
                     _class='plugin_slider_prevlink',
                     cid='plugin_slider_slide'
                     )}}
+    {{deckmenu = DIV(H4('Slide Sets'),
+                     UL(_class='plugin_slider_decklist'),
+                     _class='plugin_slider_slidemenu {}'.format(mystate))
+    for myset in decklist:
+        active = 'plugin_slider_active' if myset[1] else ''
+        setrow = LI('set {}'.format(myset[0]), 
+                    UL(_class='set-decks'),
+                    _class='set-row {}'.format(active))
+        for deckid, deckinfo in myset[2].iteritems():
+            dname = deckinfo['name']
+            dbadges = [b[1] for b in deckinfo['tags']]
+            dbadges = '|'.join(dbadges)
+            dclasses = deckinfo['classes']
+            setrow[1].append(A(dname, dbadges,
+                               _href=URL('plugin_slider',
+                                         'start_deck.load',
+                                         args=[s.id]),
+                               cid='slideframe',
+                               _class=dclasses))
+        pass
+        deckmenu[0].append(setrow)
+    pass}}
+
+    {{=deckmenu}}
 
     <div class='plugin_slider_slide'>
         {{=LOAD('plugin_slider', 'show_slide', args=[firstslide],
-                                ajax=True, target='plugin_slider_slide')}}
+                ajax=False, target='plugin_slider_slide')}}
     </div>
 </div>
+
+<script type="text/javascript">
+$('.plugin_slider_slidemenu a').on('click', function(event){
+    $(this).parents('.plugin_slider_slidemenu').removeClass('initial_state');
+});
+</script>
