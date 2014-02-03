@@ -1,7 +1,7 @@
 {{from plugin_widgets import ROLE, MODAL}}
 {{mystate = '' if request.args else 'initial_state'}}
 
-<div id=plugin_slider_{{=did}} class='plugin_slider_frame'>
+<div id=plugin_slider_{{=did}} class='plugin_slider_frame row-fluid span12'>
     <div class='plugin_slider_frameheader'>
         <span>deck {{=did}}</span> 
         {{=ROLE(MODAL('Add new slide', 'Add new slide', LOAD('plugin_listandedit', 'edit.load', args='plugin_slider_slides', ajax=True)))}}
@@ -18,34 +18,37 @@
                     _class='plugin_slider_prevlink',
                     cid='plugin_slider_slide'
                     )}}
-    {{deckmenu = DIV(H4('Slide Sets'),
-                     UL(_class='plugin_slider_decklist'),
+    {{deckmenu = DIV(DIV(UL(_class='plugin_slider_decklist nav nav-stacked'),
+                         _class='plugin_slider_decklist_wrapper'),
+                     H4('Choose a Slide Deck'),
                      _class='plugin_slider_slidemenu {}'.format(mystate))
-    for myset in decklist:
-        active = 'plugin_slider_active' if myset[1] else ''
-        setrow = LI('set {}'.format(myset[0]), 
+    for myset, mydecks in decklist.iteritems():
+        active = 'plugin_slider_active' if mydecks[0] else ''
+        setrow = LI('Badge set {}'.format(myset),
                     UL(_class='set-decks'),
                     _class='set-row {}'.format(active))
-        for deckid, deckinfo in myset[2].iteritems():
+        for deckid, deckinfo in mydecks[1].iteritems():
+            did = deckid
             dname = deckinfo['name']
-            dbadges = [b[1] for b in deckinfo['tags']]
-            dbadges = '|'.join(dbadges)
+            dbadges = [SPAN(b[1], _class='badge badge-info pull-right') for b in deckinfo['tags']]
             dclasses = deckinfo['classes']
-            setrow[1].append(A(dname, dbadges,
+            setrow[1].append(A(dname, *dbadges,
                                _href=URL('plugin_slider',
                                          'start_deck.load',
-                                         args=[s.id]),
+                                         args=[did]),
                                cid='slideframe',
                                _class=dclasses))
         pass
-        deckmenu[0].append(setrow)
+        deckmenu[0][0].append(setrow)
     pass}}
 
     {{=deckmenu}}
 
     <div class='plugin_slider_slide'>
-        {{=LOAD('plugin_slider', 'show_slide', args=[firstslide],
-                ajax=False, target='plugin_slider_slide')}}
+        {{if firstslide:}}
+            {{=LOAD('plugin_slider', 'show_slide', args=[firstslide],
+                    ajax=False, target='plugin_slider_slide')}}
+        {{pass}}
     </div>
 </div>
 

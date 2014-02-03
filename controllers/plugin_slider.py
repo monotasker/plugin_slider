@@ -10,16 +10,28 @@ from itertools import chain
 
 def decklist():
     """
-    Returns a list of tuples, each containing information on one deck.
+    Returns a dictionary of information on decks for each tag set.
 
-    Each tuple has 2 members:
-        [0]     the deck id (db.plugin_slider.decks; int)
-        [1]     a list of tuples holding tag/badge information for that deck
-    In each tuple of this second-level list includes
-        [0]     the tag id (db.tags; int)
-        [1]     the name of the corresponding badge (str)
-        [2]     the position of that tag in the topic progression
+    The dictionary keys are integers representing set numbers. The values
+    are 2 member tuples with these members:
+        [0]     a boolean (True/False) indicating whether the set is
+                active for the current user;
+        [1]     a list of dictionaries each representing one slide deck.
+    the keys:values for each deck dictionary are:
+        [name]          the title of the slide deck
+        [classes]       a string giving relevant html "class" values
+        [tags]          a list of tuples for the tags associated with the
+                            slide deck.
+    each deck tuple includes three members:
+        [0]     the id of the tag (NOT the badge id)
+        [1]     the name of the associated badge (NOT the tag name)
+        [2]     the "position" of the tag in the set progression.
+    # TODO: this position value is redundant
+    # TODO: add the badge description string
+    # TODO: add the id of each deck
 
+    Decks that have been changed less than 7 days ago are given a class of
+    "plugin_slider_new " to allow flagging or distinct theming via css.
     """
     decks = db(db.plugin_slider_decks.id > 0).select()
     deckinfo = {}
@@ -33,7 +45,7 @@ def decklist():
     # the 999 constraint allows position 999 to be used to deactivate
     maxpos = max([int(t[2]) for d in deckinfo.values() for t in d
                   if int(t[2]) > 0 and int(t[2]) < 999])
-    decklist = []
+    decklist = {}
     prog = db(db.tag_progress.name == auth.user_id).select().first()
     for i in range(0, maxpos):
         setdecks = list(set([int(did) for did, dtags in deckinfo.iteritems()
@@ -41,7 +53,7 @@ def decklist():
                              and did not in chain(decklist)]))
 
         if setdecks:
-            setlist = []
+            setlist = {}
             for did in setdecks:
                 drow = db.plugin_slider_decks(did)
                 setinfo = {'name': drow.deck_name,
@@ -51,12 +63,12 @@ def decklist():
                 week = timedelta(days=7)
                 if drow.updated and (now - drow.updated < week):
                     setinfo['classes'] = 'plugin_slider_new '
-                setlist.append(setinfo)
+                setlist[did] = setinfo
             active = True if prog and i <= prog.latest_new else False
-            decklist.extend([i, active, setlist])
+            decklist[i] = (active, setlist)
         else:
             pass
-    pprint(decklist)
+    #pprint(decklist)
     return decklist
 
 
@@ -103,6 +115,8 @@ def start_deck():
     # get lists for nav interface
     mydecklist = decklist()
     #slidelist = slidelist()
+    print 'firstslide is', firstslide
+    print 'deckorder is', deckorder
 
     return dict(did=did, firstslide=firstslide, theme=theme,
                 decklist=mydecklist,
@@ -141,15 +155,9 @@ def show_slide():
     web2py MARKMIN helper object with the text contents of the slide.
     """
     print 'starting show_slide'
-    try:
-        sid = request.args[0]
-        session.plugin_slider_sid = sid
-    except IndexError:
-        sid = session.plugin_slider_sid
-        print 'kept sid as', session.plugin_slider_sid
-    except Exception:
-        print traceback.format_exc(5)
-        return dict(content='Sorry, no slide was requested.')
+    sid = request.args[0] if len(request.args) else session.plugin_slider_sid
+    session['plugin_slider_sid'] = sid
+    print 'sid is', sid
 
     # get slide content
     slide = db.plugin_slider_slides[int(sid)]

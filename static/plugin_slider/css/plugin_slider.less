@@ -48,7 +48,7 @@
 
 div.plugin_slider_slidemenu    {display:block;
                                 position:absolute;
-                                bottom:-400px + @baseLineHeight;
+                                top:-400px + @baseLineHeight;
                                 left:50%;
                                 margin-left: -250px;
                                 width:500px;
@@ -57,36 +57,35 @@ div.plugin_slider_slidemenu    {display:block;
                                 background-color:fadeout(@sol_charcoal, 10%);
                                 font-size:@baseFontSize;
                                 color:@palletteBG;
-                                .border-radius(@baseFontSize, @baseFontSize, 0, 0);
+                                .border-radius(0, 0, @borderRadiusLarge, @borderRadiusLarge);
                                 .transition();
                                 z-index:99;
     &:hover,
-    &.initial_state            {bottom:0;
+    &.initial_state            {top:0;
                                 .transition();
     }
 
     h4                         {display:block;
                                 text-align: center;
-                                /*.blockletter-small();*/
-                                margin-top: (@baseLineHeight/2);
                                 color: @white;
     }
     a                          {color: @sol_grey4;
         &:hover                {color:@white;
-                                .text-shadow();
+                                //.text-shadow();
         }
         &.plugin_slider_new    {
                                 /*.label-success;*/
         }
         /*&.plugin_slider_active {color: @chalk;}*/
     }
-    ul                         {padding:0 @baseLineHeight;
-                                overflow:auto;
-                                height:350px;
-        li                     {
-            span               {color:@sol_yellow;
-                                padding:0 0 0 @baseFontSize;
-                                font-style: italic;}
+    .plugin_slider_decklist_wrapper {overflow:auto;
+                                     height:362px;
+        ul                         {//padding:0 @baseLineHeight;
+            li                     {
+                span               {}
+                ul                 {overflow:visible; 
+                }
+            }
         }
     }
 }
