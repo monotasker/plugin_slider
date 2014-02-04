@@ -1,11 +1,16 @@
 {{from plugin_widgets import ROLE, MODAL}}
 {{mystate = '' if request.args else 'initial_state'}}
-
+{{editor = MODAL('Edit', 'Edit slide',
+                    LOAD('plugin_listandedit', 'edit.load',
+                        args='plugin_slider_slides', ajax=True))
+                        
+    }}
+<!--admin row ==================================================================-->
 <div id=plugin_slider_{{=did}} class='plugin_slider_frame row-fluid span12'>
     <div class='plugin_slider_frameheader'>
         <span>deck {{=did}}</span> 
-        {{=ROLE(MODAL('Add new slide', 'Add new slide', LOAD('plugin_listandedit', 'edit.load', args='plugin_slider_slides', ajax=True)))}}
-        <a class='plugin_slider_slide_adder'>Add new slide</span>
+        {{=editor[0]}}
+        <a class='plugin_slider_slide_adder btn btn-success'>Add</span>
     </div>
 
     {{=A(SPAN(u'\u200b', _class='accessible icon-chevron-right'),
@@ -51,6 +56,8 @@
         {{pass}}
     </div>
 </div>
+
+{{=editor[1]}}
 
 <script type="text/javascript">
 $('.plugin_slider_slidemenu a').on('click', function(event){
