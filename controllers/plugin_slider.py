@@ -92,8 +92,16 @@ def start_deck():
     Takes no parameters.
     Expects the first url argument to be the id of the deck to be initialized.
     """
-    did = int(request.args[0]) if len(request.args) else 0
-    firstslide = None
+    if len(request.args):
+        did = int(request.args[0])
+    #elif 'plugin_slider_did' in session.keys():
+        #did = session.plugin_slider_did
+    else:
+        did = None
+    print 'start_deck: did is', did
+    session.plugin_slider_did = did
+    dname = None
+    firstslide = request.vars.firstslide if 'firstslide' in request.vars.keys() else None
     theme = None
     deckorder = None
     if did:
@@ -102,12 +110,13 @@ def start_deck():
     else:
         response.flash = "Sorry, I couldn't find the slides you asked for."
 
-    if did > 0:
-        deck = db.plugin_slider_decks[did]
+    if did:
+        deck = db.plugin_slider_decks(did)
+        dname = deck.deck_name
         deckorder = [s for s in deck.deck_slides if s is not None]
         if deckorder and len(deckorder) > 0:
             session['plugin_slider_deckorder'] = deckorder
-            firstslide = deckorder[0]
+            firstslide = deckorder[0] if not firstslide else firstslide
             theme = db.plugin_slider_themes[deck.theme[0]].theme_name
         else:
             response.flash = "Sorry, I couldn't find any slides for that deck."
@@ -118,8 +127,12 @@ def start_deck():
 
     if not firstslide:
         response.flash = "Sorry, there aren't any slides in that deck yet."
+    print 'start_deck: firstslide is', firstslide
 
-    return dict(did=did, firstslide=firstslide, theme=theme,
+    return dict(did=did,
+                dname=dname,
+                firstslide=firstslide,
+                theme=theme,
                 decklist=mydecklist,
                 #slidelist=slidelist,
                 deckorder=deckorder)
@@ -156,9 +169,19 @@ def show_slide():
     web2py MARKMIN helper object with the text contents of the slide.
     """
     print 'starting show_slide'
-    sid = request.args[0] if len(request.args) else session.plugin_slider_sid
-    session['plugin_slider_sid'] = sid
-    print 'sid is', sid
+    if len(request.args) > 1:
+        sid = int(request.args[1])
+    elif 'firstslide' in request.vars.keys():
+        sid = int(request.vars.firstslide)
+    else:
+        sid = session.plugin_slider_sid
+    session.plugin_slider_sid = sid
+    print 'show_slide: sid is', sid
+
+    did = int(request.args[0]) if len(request.args) else session.plugin_slider_did
+    session.plugin_slider_did = did
+    print 'show_slide: did is', did
+    dname = db.plugin_slider_decks(did).deck_name
 
     # get slide content
     slide = db.plugin_slider_slides[int(sid)]
@@ -183,7 +206,56 @@ def show_slide():
     content = MARKMIN(slide.slide_content, extra=custom_mm)
 
     return dict(content=content,
+                did=did,
+                dname=dname,
+                sid=sid,
                 editform=editform())
+
+
+def addform():
+    """
+    Return a sqlform object for editing the specified slide.
+    """
+    did = request.args[0]
+    deckorder = session.plugin_slider_deckorder
+    #print 'adding slide to deck', did
+    #print 'adding slide from', sid
+    form = SQLFORM(db.plugin_slider_slides,
+                   separator='',
+                   deletable=True,
+                   showid=True,
+                   formname='plugin_slider_slides/addnew')
+
+    if form.process(formname='plugin_slider_slides/addnew').accepted:
+        deckrow = db.plugin_slider_decks(did)
+        # TODO: is this the best way to get the new slide id?
+        slideid = db(db.plugin_slider_slides).select().last().id
+        sindex = deckorder.index(slideid)
+        newindex = sindex + 1
+        if newindex == len(deckorder):
+            newindex = -1
+        deckslides = deckrow.deck_slides
+        deckslides.insert(sindex, newindex)
+        deckrow.update_record(deck_slides=deckslides)
+        response.flash = 'The new slide was added successfully.'
+        print '\n\nform processed'
+    elif form.errors:
+        print '\n\nlistandedit form errors:'
+        pprint({k: v for k, v in form.errors.iteritems()})
+        print '\n\nlistandedit form vars'
+        pprint({k: v for k, v in form.vars.iteritems()})
+        print '\n\nlistandedit request vars'
+        pprint({k: v for k, v in request.vars.iteritems()})
+        response.flash = 'Sorry, there was an error processing ' \
+                         'the form. The changes have not been recorded.'
+
+    else:
+        #print '\n\nform not processed, but no errors'
+        #pprint({k: v for k, v in form.vars.iteritems()})
+        #pprint({k: v for k, v in request.vars.iteritems()})
+        pass
+
+    return form
 
 
 def editform():
@@ -191,16 +263,13 @@ def editform():
     Return a sqlform object for editing the specified slide.
     """
     sid = session.plugin_slider_sid
+    #print 'editing slide', sid
     form = SQLFORM(db.plugin_slider_slides, sid,
                    separator='',
                    deletable=True,
                    showid=True)
 
     if form.process(formname='plugin_slider_slides/{}'.format(sid)).accepted:
-        #the_url = URL('plugin_slider', 'show_slide.load')
-        #response.js = "window.setTimeout(" \
-                      #"web2py_component('{}', " \
-                      #"'plugin_slider_slide'), 500);".format(the_url)
         response.flash = 'The changes were recorded successfully.'
         print '\n\nform processed'
     elif form.errors:
@@ -214,9 +283,9 @@ def editform():
                          'the form. The changes have not been recorded.'
 
     else:
-        print '\n\nform not processed, but no errors'
-        pprint({k: v for k, v in form.vars.iteritems()})
-        pprint({k: v for k, v in request.vars.iteritems()})
+        #print '\n\nform not processed, but no errors'
+        #pprint({k: v for k, v in form.vars.iteritems()})
+        #pprint({k: v for k, v in request.vars.iteritems()})
         pass
 
     return form

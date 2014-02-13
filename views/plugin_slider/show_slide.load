@@ -1,3 +1,25 @@
 {{from plugin_widgets import ROLE, MODAL}}
-{{=ROLE(MODAL('edit slide', 'edit slide', editform))}}
+{{editor = MODAL('Edit', 'Edit slide',
+                 LOAD('plugin_slider', 'editform.load',
+                      args=[did, sid], ajax=True),
+                 trigger_classes='btn btn-danger plugin_slider_slide_editor',
+                 id='plugin_slider_editform')
+  }}
+{{adder = MODAL('Add', 'Add slide',
+                 LOAD('plugin_slider', 'addform.load',
+                      args=[did, sid], ajax=True),
+                 trigger_classes='btn btn-success plugin_slider_slide_adder',
+                 id='plugin_slider_addform')
+  }}
+
+<div class='plugin_slider_frameheader'>
+    {{=ROLE(editor[0])}}
+    {{=ROLE(adder[0])}}
+</div>
+
+<!--main slide content-->
 {{=content}}
+
+<!--hidden modal forms-->
+{{=ROLE(editor[1])}}
+{{=ROLE(adder[1])}}

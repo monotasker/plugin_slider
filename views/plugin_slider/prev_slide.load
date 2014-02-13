@@ -1,4 +1,1 @@
-
-{{from plugin_widgets import ROLE, MODAL}}
-{{=ROLE(MODAL('edit slide', 'edit slide', editform))}}
-{{=content}}
+{{=LOAD('plugin_slider', 'show_slide', args=[did, sid], ajax=False)}}
