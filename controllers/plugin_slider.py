@@ -93,11 +93,15 @@ def start_deck():
     Expects the first url argument to be the id of the deck to be initialized.
     """
     did = int(request.args[0]) if len(request.args) else 0
+    firstslide = None
+    theme = None
+    deckorder = None
     if did:
         session['plugin_slider_did'] = did
         print 'deck is', did
     else:
         response.flash = "Sorry, I couldn't find the slides you asked for."
+
     if did > 0:
         deck = db.plugin_slider_decks[did]
         deckorder = [s for s in deck.deck_slides if s is not None]
@@ -107,16 +111,13 @@ def start_deck():
             theme = db.plugin_slider_themes[deck.theme[0]].theme_name
         else:
             response.flash = "Sorry, I couldn't find any slides for that deck."
-    else:
-        firstslide = None
-        theme = None
-        deckorder = None
 
     # get lists for nav interface
     mydecklist = decklist()
     #slidelist = slidelist()
-    print 'firstslide is', firstslide
-    print 'deckorder is', deckorder
+
+    if not firstslide:
+        response.flash = "Sorry, there aren't any slides in that deck yet."
 
     return dict(did=did, firstslide=firstslide, theme=theme,
                 decklist=mydecklist,
