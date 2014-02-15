@@ -33,7 +33,7 @@
                                 .plugin_slider_navlink;
                                 /*.icon-back;*/
                                 text-align: right;
-                                .border-radius(0, @baseFontSize, @baseFontSize, 0);
+                                .border-radius(0 @borderRadiusLarge @borderRadiusLarge 0);
                                 z-index: 999;
     &:hover                    {left:0;}
 }
@@ -41,7 +41,7 @@
                                 .plugin_slider_navlink;
                                 /*.icon-next;*/
                                 text-align: left;
-                                .border-radius(@baseFontSize, 0, 0, @baseFontSize);
+                                .border-radius(@borderRadiusLarge 0 0 @borderRadiusLarge);
                                 z-index: 999;
     &:hover                    {right:0;}
 }
@@ -54,10 +54,10 @@ div.plugin_slider_slidemenu    {display:block;
                                 width:500px;
                                 height:400px;
                                 max-height:400px;
-                                background-color:fadeout(@sol_charcoal, 10%);
+                                background-color:@pallette2;  //fadeout(@sol_charcoal, 10%);
                                 font-size:@baseFontSize;
                                 color:@palletteBG;
-                                .border-radius(0, 0, @borderRadiusLarge, @borderRadiusLarge);
+                                .border-radius(0 0 @borderRadiusLarge @borderRadiusLarge);
                                 .transition();
                                 z-index:99;
     &:hover,
@@ -68,22 +68,43 @@ div.plugin_slider_slidemenu    {display:block;
     h4                         {display:block;
                                 text-align: center;
                                 color: @white;
+                                font-size: @baseFontSize;
     }
     a                          {color: @sol_grey4;
         &:hover                {color:@white;
                                 //.text-shadow();
         }
         &.plugin_slider_new    {
-                                /*.label-success;*/
+                                /*.label-success();*/
         }
         /*&.plugin_slider_active {color: @chalk;}*/
     }
     .plugin_slider_decklist_wrapper {overflow:auto;
                                      height:362px;
-        ul                         {//padding:0 @baseLineHeight;
-            li                     {
+                                     .border-radius(0 0 @borderRadiusLarge @borderRadiusLarge); 
+        ul                         {padding:0 (@baseLineHeight / 2) 0 @baseLineHeight;
+                                    font-family: @sansFontFamily;
+            li                     {.clearfix();
                 span               {}
+                .badge             {margin-left:(@baseLineHeight / 6);
+                                    font-family:@sansFontFamily;
+                                    font-size:@fontSizeMini;
+                                    background-color:darken(@accent2, 10%);
+                }
                 ul                 {overflow:visible; 
+                                    font-family:@serifFontFamily;
+                                    font-size:@fontSizeSmall;
+                                    color: darken(@pallette2, 40%);
+                                    list-style-type:none;
+                                    padding-left:0;
+                                    margin-left:0;
+                    li             {border-left: 2px solid transparent;
+                                    padding-left: (@baseLineHeight / 4);
+                        &:hover    {border-left: 2px solid darken(@pallette2, 20%);
+                        }
+                        a          {color: darken(@pallette2, 40%);
+                        }
+                    }
                 }
             }
         }
@@ -110,7 +131,7 @@ body #main.listing #page div.plugin_slider_slide{
         font-style: normal;
         .blockletter;
     }
-    ul                                 {font-family:Ubuntu, Calibri, sans-serif;
+    ul                                 {//font-family:Ubuntu, Calibri, sans-serif;
                                         color: darken(@accent2, 10%);
                                         margin:0 (@baseLineHeight * 2) 0 0;
                                         padding-right: 0;

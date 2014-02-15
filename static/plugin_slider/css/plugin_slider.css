@@ -1278,14 +1278,9 @@ a:focus {
   text-decoration: underline;
 }
 .img-rounded {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .img-polaroid {
   padding: 4px;
@@ -1305,11 +1300,6 @@ a:focus {
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
-  -moz-border-radius: 500px 0 0 0;
-  -webkit-border-radius: 500px 0 0 0;
-  -o-border-radius: 500px 0 0 0;
-  -ms-border-radius: 500px 0 0 0;
-  border-radius: 500px 0 0 0;
 }
 /*@gridColumnWidth:         60px; //FIXME: this is a hack*/
 /*@gridGutterWidth:         20px;*/
@@ -1891,11 +1881,6 @@ pre {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -moz-border-radius: 3px 0 0 0;
-  -webkit-border-radius: 3px 0 0 0;
-  -o-border-radius: 3px 0 0 0;
-  -ms-border-radius: 3px 0 0 0;
-  border-radius: 3px 0 0 0;
 }
 code {
   padding: 2px 4px;
@@ -1920,11 +1905,6 @@ pre {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 pre.prettyprint {
   margin-bottom: 24px;
@@ -2010,11 +1990,6 @@ input[type="color"],
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   vertical-align: middle;
 }
 input,
@@ -2598,11 +2573,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0 0px 0px 0;
   -moz-border-radius: 0 0px 0px 0;
   border-radius: 0 0px 0px 0;
-  -moz-border-radius: 0 0px 0px 0 0 0 0;
-  -webkit-border-radius: 0 0px 0px 0 0 0 0;
-  -o-border-radius: 0 0px 0px 0 0 0 0;
-  -ms-border-radius: 0 0px 0px 0 0 0 0;
-  border-radius: 0 0px 0px 0 0 0 0;
 }
 .input-append input:focus,
 .input-prepend input:focus,
@@ -2637,11 +2607,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .input-append .active,
 .input-prepend .active {
@@ -2657,11 +2622,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0px 0 0 0px;
   -moz-border-radius: 0px 0 0 0px;
   border-radius: 0px 0 0 0px;
-  -moz-border-radius: 0px 0 0 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0px 0 0 0;
-  border-radius: 0px 0 0 0px 0 0 0;
 }
 .input-append input,
 .input-append select,
@@ -2669,11 +2629,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0px 0 0 0px;
   -moz-border-radius: 0px 0 0 0px;
   border-radius: 0px 0 0 0px;
-  -moz-border-radius: 0px 0 0 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0px 0 0 0;
-  border-radius: 0px 0 0 0px 0 0 0;
 }
 .input-append input + .btn-group .btn:last-child,
 .input-append select + .btn-group .btn:last-child,
@@ -2681,11 +2636,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0 0px 0px 0;
   -moz-border-radius: 0 0px 0px 0;
   border-radius: 0 0px 0px 0;
-  -moz-border-radius: 0 0px 0px 0 0 0 0;
-  -webkit-border-radius: 0 0px 0px 0 0 0 0;
-  -o-border-radius: 0 0px 0px 0 0 0 0;
-  -ms-border-radius: 0 0px 0px 0 0 0 0;
-  border-radius: 0 0px 0px 0 0 0 0;
 }
 .input-append .add-on,
 .input-append .btn,
@@ -2698,11 +2648,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0 0px 0px 0;
   -moz-border-radius: 0 0px 0px 0;
   border-radius: 0 0px 0px 0;
-  -moz-border-radius: 0 0px 0px 0 0 0 0;
-  -webkit-border-radius: 0 0px 0px 0 0 0 0;
-  -o-border-radius: 0 0px 0px 0 0 0 0;
-  -ms-border-radius: 0 0px 0px 0 0 0 0;
-  border-radius: 0 0px 0px 0 0 0 0;
 }
 .input-prepend.input-append input,
 .input-prepend.input-append select,
@@ -2710,11 +2655,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .input-prepend.input-append input + .btn-group .btn,
 .input-prepend.input-append select + .btn-group .btn,
@@ -2722,11 +2662,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0 0px 0px 0;
   -moz-border-radius: 0 0px 0px 0;
   border-radius: 0 0px 0px 0;
-  -moz-border-radius: 0 0px 0px 0 0 0 0;
-  -webkit-border-radius: 0 0px 0px 0 0 0 0;
-  -o-border-radius: 0 0px 0px 0 0 0 0;
-  -ms-border-radius: 0 0px 0px 0 0 0 0;
-  border-radius: 0 0px 0px 0 0 0 0;
 }
 .input-prepend.input-append .add-on:first-child,
 .input-prepend.input-append .btn:first-child {
@@ -2734,11 +2669,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0px 0 0 0px;
   -moz-border-radius: 0px 0 0 0px;
   border-radius: 0px 0 0 0px;
-  -moz-border-radius: 0px 0 0 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0px 0 0 0;
-  border-radius: 0px 0 0 0px 0 0 0;
 }
 .input-prepend.input-append .add-on:last-child,
 .input-prepend.input-append .btn:last-child {
@@ -2746,11 +2676,6 @@ select:focus:invalid:focus {
   -webkit-border-radius: 0 0px 0px 0;
   -moz-border-radius: 0 0px 0px 0;
   border-radius: 0 0px 0px 0;
-  -moz-border-radius: 0 0px 0px 0 0 0 0;
-  -webkit-border-radius: 0 0px 0px 0 0 0 0;
-  -o-border-radius: 0 0px 0px 0 0 0 0;
-  -ms-border-radius: 0 0px 0px 0 0 0 0;
-  border-radius: 0 0px 0px 0 0 0 0;
 }
 .input-prepend.input-append .btn-group:first-child {
   margin-left: 0;
@@ -2765,11 +2690,6 @@ input.search-query {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  -moz-border-radius: 15px 0 0 0;
-  -webkit-border-radius: 15px 0 0 0;
-  -o-border-radius: 15px 0 0 0;
-  -ms-border-radius: 15px 0 0 0;
-  border-radius: 15px 0 0 0;
 }
 /* Allow for input prepend/append in search forms */
 .form-search .input-append .search-query,
@@ -2777,51 +2697,26 @@ input.search-query {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .form-search .input-append .search-query {
   -webkit-border-radius: 14px 0 0 14px;
   -moz-border-radius: 14px 0 0 14px;
   border-radius: 14px 0 0 14px;
-  -moz-border-radius: 14px 0 0 14px 0 0 0;
-  -webkit-border-radius: 14px 0 0 14px 0 0 0;
-  -o-border-radius: 14px 0 0 14px 0 0 0;
-  -ms-border-radius: 14px 0 0 14px 0 0 0;
-  border-radius: 14px 0 0 14px 0 0 0;
 }
 .form-search .input-append .btn {
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
   border-radius: 0 14px 14px 0;
-  -moz-border-radius: 0 14px 14px 0 0 0 0;
-  -webkit-border-radius: 0 14px 14px 0 0 0 0;
-  -o-border-radius: 0 14px 14px 0 0 0 0;
-  -ms-border-radius: 0 14px 14px 0 0 0 0;
-  border-radius: 0 14px 14px 0 0 0 0;
 }
 .form-search .input-prepend .search-query {
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
   border-radius: 0 14px 14px 0;
-  -moz-border-radius: 0 14px 14px 0 0 0 0;
-  -webkit-border-radius: 0 14px 14px 0 0 0 0;
-  -o-border-radius: 0 14px 14px 0 0 0 0;
-  -ms-border-radius: 0 14px 14px 0 0 0 0;
-  border-radius: 0 14px 14px 0 0 0 0;
 }
 .form-search .input-prepend .btn {
   -webkit-border-radius: 14px 0 0 14px;
   -moz-border-radius: 14px 0 0 14px;
   border-radius: 14px 0 0 14px;
-  -moz-border-radius: 14px 0 0 14px 0 0 0;
-  -webkit-border-radius: 14px 0 0 14px 0 0 0;
-  -o-border-radius: 14px 0 0 14px 0 0 0;
-  -ms-border-radius: 14px 0 0 14px 0 0 0;
-  border-radius: 14px 0 0 14px 0 0 0;
 }
 .form-search input,
 .form-inline input,
@@ -2983,11 +2878,6 @@ table {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .table-bordered th,
 .table-bordered td {
@@ -3216,14 +3106,9 @@ table th[class*="span"],
   border: 1px solid #d8d3b3;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -3339,14 +3224,9 @@ table th[class*="span"],
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px 6px;
-  border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px 6px 0 0 0;
-  -webkit-border-radius: 0 6px 6px 6px 0 0 0;
-  -o-border-radius: 0 6px 6px 6px 0 0 0;
-  -ms-border-radius: 0 6px 6px 6px 0 0 0;
-  border-radius: 0 6px 6px 6px 0 0 0;
+  -webkit-border-radius: 0 0px 0px 0px;
+  -moz-border-radius: 0 0px 0px 0px;
+  border-radius: 0 0px 0px 0px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -3356,14 +3236,9 @@ table th[class*="span"],
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  -webkit-border-radius: 5px 5px 5px 0;
-  -moz-border-radius: 5px 5px 5px 0;
-  border-radius: 5px 5px 5px 0;
-  -moz-border-radius: 5px 5px 5px 0 0 0 0;
-  -webkit-border-radius: 5px 5px 5px 0 0 0 0;
-  -o-border-radius: 5px 5px 5px 0 0 0 0;
-  -ms-border-radius: 5px 5px 5px 0 0 0 0;
-  border-radius: 5px 5px 5px 0 0 0 0;
+  -webkit-border-radius: 0px 0px 0px 0;
+  -moz-border-radius: 0px 0px 0px 0;
+  border-radius: 0px 0px 0px 0;
 }
 .dropdown-submenu > a:after {
   display: block;
@@ -3387,14 +3262,9 @@ table th[class*="span"],
 .dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px 0 0 0;
-  -webkit-border-radius: 6px 0 6px 6px 0 0 0;
-  -o-border-radius: 6px 0 6px 6px 0 0 0;
-  -ms-border-radius: 6px 0 6px 6px 0 0 0;
-  border-radius: 6px 0 6px 6px 0 0 0;
+  -webkit-border-radius: 0px 0 0px 0px;
+  -moz-border-radius: 0px 0 0px 0px;
+  border-radius: 0px 0 0px 0px;
 }
 .dropdown .dropdown-menu .nav-header {
   padding-left: 20px;
@@ -3406,11 +3276,6 @@ table th[class*="span"],
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .well {
   min-height: 20px;
@@ -3421,11 +3286,6 @@ table th[class*="span"],
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -3444,22 +3304,12 @@ table th[class*="span"],
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .well-small {
   padding: 9px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .fade {
   opacity: 0;
@@ -3551,11 +3401,6 @@ button.close {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   *margin-left: .3em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
@@ -3637,11 +3482,6 @@ button.close {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -3653,11 +3493,6 @@ button.close {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .btn-small [class^="icon-"],
 .btn-small [class*=" icon-"] {
@@ -3673,11 +3508,6 @@ button.close {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .btn-block {
   display: block;
@@ -3936,11 +3766,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .btn-link:hover,
 .btn-link:focus {
@@ -3985,11 +3810,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .btn-group > .btn + .btn {
   margin-left: -1px;
@@ -4157,11 +3977,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .btn-group-vertical > .btn + .btn {
   margin-left: 0;
@@ -4171,41 +3986,21 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px 0px 0 0;
   -moz-border-radius: 0px 0px 0 0;
   border-radius: 0px 0px 0 0;
-  -moz-border-radius: 0px 0px 0 0 0 0 0;
-  -webkit-border-radius: 0px 0px 0 0 0 0 0;
-  -o-border-radius: 0px 0px 0 0 0 0 0;
-  -ms-border-radius: 0px 0px 0 0 0 0 0;
-  border-radius: 0px 0px 0 0 0 0 0;
 }
 .btn-group-vertical > .btn:last-child {
   -webkit-border-radius: 0 0 0px 0px;
   -moz-border-radius: 0 0 0px 0px;
   border-radius: 0 0 0px 0px;
-  -moz-border-radius: 0 0 0px 0px 0 0 0;
-  -webkit-border-radius: 0 0 0px 0px 0 0 0;
-  -o-border-radius: 0 0 0px 0px 0 0 0;
-  -ms-border-radius: 0 0 0px 0px 0 0 0;
-  border-radius: 0 0 0px 0px 0 0 0;
 }
 .btn-group-vertical > .btn-large:first-child {
   -webkit-border-radius: 0px 0px 0 0;
   -moz-border-radius: 0px 0px 0 0;
   border-radius: 0px 0px 0 0;
-  -moz-border-radius: 0px 0px 0 0 0 0 0;
-  -webkit-border-radius: 0px 0px 0 0 0 0 0;
-  -o-border-radius: 0px 0px 0 0 0 0 0;
-  -ms-border-radius: 0px 0px 0 0 0 0 0;
-  border-radius: 0px 0px 0 0 0 0 0;
 }
 .btn-group-vertical > .btn-large:last-child {
   -webkit-border-radius: 0 0 0px 0px;
   -moz-border-radius: 0 0 0px 0px;
   border-radius: 0 0 0px 0px;
-  -moz-border-radius: 0 0 0px 0px 0 0 0;
-  -webkit-border-radius: 0 0 0px 0px 0 0 0;
-  -o-border-radius: 0 0 0px 0px 0 0 0;
-  -ms-border-radius: 0 0 0px 0px 0 0 0;
-  border-radius: 0 0 0px 0px 0 0 0;
 }
 .alert {
   padding: 8px 35px 8px 14px;
@@ -4216,11 +4011,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .alert,
 .alert h4 {
@@ -4376,14 +4166,9 @@ input[type="submit"].btn.btn-mini {
   padding-bottom: 8px;
   line-height: 24px;
   border: 1px solid transparent;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0 0 0 0;
-  -webkit-border-radius: 4px 4px 0 0 0 0 0;
-  -o-border-radius: 4px 4px 0 0 0 0 0;
-  -ms-border-radius: 4px 4px 0 0 0 0 0;
-  border-radius: 4px 4px 0 0 0 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  -moz-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
 }
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
@@ -4403,14 +4188,9 @@ input[type="submit"].btn.btn-mini {
   padding-bottom: 8px;
   margin-top: 2px;
   margin-bottom: 2px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-border-radius: 5px 0 0 0;
-  -webkit-border-radius: 5px 0 0 0;
-  -o-border-radius: 5px 0 0 0;
-  -ms-border-radius: 5px 0 0 0;
-  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover,
@@ -4432,11 +4212,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .nav-tabs.nav-stacked > li:first-child > a {
   -webkit-border-top-right-radius: 4px;
@@ -4466,24 +4241,14 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 1px;
 }
 .nav-tabs .dropdown-menu {
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px 0 0 0;
-  -webkit-border-radius: 0 0 6px 6px 0 0 0;
-  -o-border-radius: 0 0 6px 6px 0 0 0;
-  -ms-border-radius: 0 0 6px 6px 0 0 0;
-  border-radius: 0 0 6px 6px 0 0 0;
+  -webkit-border-radius: 0 0 0px 0px;
+  -moz-border-radius: 0 0 0px 0px;
+  border-radius: 0 0 0px 0px;
 }
 .nav-pills .dropdown-menu {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .nav .dropdown-toggle .caret {
   border-top-color: #2390b0;
@@ -4568,14 +4333,9 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 0;
 }
 .tabs-below > .nav-tabs > li > a {
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px 0 0 0;
-  -webkit-border-radius: 0 0 4px 4px 0 0 0;
-  -o-border-radius: 0 0 4px 4px 0 0 0;
-  -ms-border-radius: 0 0 4px 4px 0 0 0;
-  border-radius: 0 0 4px 4px 0 0 0;
+  -webkit-border-radius: 0 0 0px 0px;
+  -moz-border-radius: 0 0 0px 0px;
+  border-radius: 0 0 0px 0px;
 }
 .tabs-below > .nav-tabs > li > a:hover,
 .tabs-below > .nav-tabs > li > a:focus {
@@ -4604,14 +4364,9 @@ input[type="submit"].btn.btn-mini {
 }
 .tabs-left > .nav-tabs > li > a {
   margin-right: -1px;
-  -webkit-border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px;
-  border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px 0 0 0;
-  -webkit-border-radius: 4px 0 0 4px 0 0 0;
-  -o-border-radius: 4px 0 0 4px 0 0 0;
-  -ms-border-radius: 4px 0 0 4px 0 0 0;
-  border-radius: 4px 0 0 4px 0 0 0;
+  -webkit-border-radius: 0px 0 0 0px;
+  -moz-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
 }
 .tabs-left > .nav-tabs > li > a:hover,
 .tabs-left > .nav-tabs > li > a:focus {
@@ -4630,14 +4385,9 @@ input[type="submit"].btn.btn-mini {
 }
 .tabs-right > .nav-tabs > li > a {
   margin-left: -1px;
-  -webkit-border-radius: 0 4px 4px 0;
-  -moz-border-radius: 0 4px 4px 0;
-  border-radius: 0 4px 4px 0;
-  -moz-border-radius: 0 4px 4px 0 0 0 0;
-  -webkit-border-radius: 0 4px 4px 0 0 0 0;
-  -o-border-radius: 0 4px 4px 0 0 0 0;
-  -ms-border-radius: 0 4px 4px 0 0 0 0;
-  border-radius: 0 4px 4px 0 0 0 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  -moz-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
 }
 .tabs-right > .nav-tabs > li > a:hover,
 .tabs-right > .nav-tabs > li > a:focus {
@@ -4680,11 +4430,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
@@ -4809,11 +4554,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  -moz-border-radius: 15px 0 0 0;
-  -webkit-border-radius: 15px 0 0 0;
-  -o-border-radius: 15px 0 0 0;
-  -ms-border-radius: 15px 0 0 0;
-  border-radius: 15px 0 0 0;
 }
 .navbar-static-top {
   position: static;
@@ -4823,11 +4563,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
@@ -4851,11 +4586,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius: 0 0 0 0;
-  -webkit-border-radius: 0 0 0 0;
-  -o-border-radius: 0 0 0 0;
-  -ms-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
 }
 .navbar-static-top .container,
 .navbar-fixed-top .container,
@@ -4986,11 +4716,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
-  -moz-border-radius: 1px 0 0 0;
-  -webkit-border-radius: 1px 0 0 0;
-  -o-border-radius: 1px 0 0 0;
-  -ms-border-radius: 1px 0 0 0;
-  border-radius: 1px 0 0 0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
@@ -5082,11 +4807,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 6px 0 6px 6px;
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px 0 0 0;
-  -webkit-border-radius: 6px 0 6px 6px 0 0 0;
-  -o-border-radius: 6px 0 6px 6px 0 0 0;
-  -ms-border-radius: 6px 0 6px 6px 0 0 0;
-  border-radius: 6px 0 6px 6px 0 0 0;
 }
 .navbar-inverse .navbar-inner {
   background-color: #1b1b1b;
@@ -5246,11 +4966,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .breadcrumb > li {
   display: inline-block;
@@ -5279,11 +4994,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -5432,11 +5142,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  -moz-border-radius: 15px 0 0 0;
-  -webkit-border-radius: 15px 0 0 0;
-  -o-border-radius: 15px 0 0 0;
-  -ms-border-radius: 15px 0 0 0;
-  border-radius: 15px 0 0 0;
 }
 .pager li > a:hover,
 .pager li > a:focus {
@@ -5491,11 +5196,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -5553,11 +5253,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px 0 0 0;
-  -webkit-border-radius: 0 0 6px 6px 0 0 0;
-  -o-border-radius: 0 0 6px 6px 0 0 0;
-  -ms-border-radius: 0 0 6px 6px 0 0 0;
-  border-radius: 0 0 6px 6px 0 0 0;
   -webkit-box-shadow: inset 0 1px 0 #ffffff;
   -moz-box-shadow: inset 0 1px 0 #ffffff;
   box-shadow: inset 0 1px 0 #ffffff;
@@ -5627,11 +5322,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .tooltip-arrow {
   position: absolute;
@@ -5683,14 +5373,9 @@ input[type="submit"].btn.btn-mini {
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -5721,14 +5406,9 @@ input[type="submit"].btn.btn-mini {
   line-height: 18px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
-  -webkit-border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0 0 0 0;
-  -webkit-border-radius: 5px 5px 0 0 0 0 0;
-  -o-border-radius: 5px 5px 0 0 0 0 0;
-  -ms-border-radius: 5px 5px 0 0 0 0 0;
-  border-radius: 5px 5px 0 0 0 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  -moz-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
 }
 .popover-title:empty {
   display: none;
@@ -5838,11 +5518,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
@@ -5926,26 +5601,16 @@ a.thumbnail:focus {
   background-color: #999999;
 }
 .label {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-border-radius: 3px 0 0 0;
-  -webkit-border-radius: 3px 0 0 0;
-  -o-border-radius: 3px 0 0 0;
-  -ms-border-radius: 3px 0 0 0;
-  border-radius: 3px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .badge {
   padding-left: 9px;
   padding-right: 9px;
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
-  -moz-border-radius: 9px 0 0 0;
-  -webkit-border-radius: 9px 0 0 0;
-  -o-border-radius: 9px 0 0 0;
-  -ms-border-radius: 9px 0 0 0;
-  border-radius: 9px 0 0 0;
+  -webkit-border-radius: 9px 9px 9px 9px;
+  -moz-border-radius: 9px 9px 9px 9px;
+  border-radius: 9px 9px 9px 9px;
 }
 .label:empty,
 .badge:empty {
@@ -6071,11 +5736,6 @@ a.badge:focus {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .progress .bar {
   width: 0%;
@@ -6232,11 +5892,6 @@ a.badge:focus {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -moz-border-radius: 0px 0 0 0;
-  -webkit-border-radius: 0px 0 0 0;
-  -o-border-radius: 0px 0 0 0;
-  -ms-border-radius: 0px 0 0 0;
-  border-radius: 0px 0 0 0;
 }
 .accordion-heading {
   border-bottom: 0;
@@ -6327,11 +5982,6 @@ a.badge:focus {
   -webkit-border-radius: 23px;
   -moz-border-radius: 23px;
   border-radius: 23px;
-  -moz-border-radius: 23px 0 0 0;
-  -webkit-border-radius: 23px 0 0 0;
-  -o-border-radius: 23px 0 0 0;
-  -ms-border-radius: 23px 0 0 0;
-  border-radius: 23px 0 0 0;
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
@@ -6399,11 +6049,6 @@ a.badge:focus {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
 }
 .hero-unit h1 {
   margin-bottom: 0;
@@ -7392,11 +7037,6 @@ a.badge:focus {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    -moz-border-radius: 3px 0 0 0;
-    -webkit-border-radius: 3px 0 0 0;
-    -o-border-radius: 3px 0 0 0;
-    -ms-border-radius: 3px 0 0 0;
-    border-radius: 3px 0 0 0;
   }
   .nav-collapse .btn {
     padding: 4px 10px 4px;
@@ -7404,11 +7044,6 @@ a.badge:focus {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    -moz-border-radius: 0px 0 0 0;
-    -webkit-border-radius: 0px 0 0 0;
-    -o-border-radius: 0px 0 0 0;
-    -ms-border-radius: 0px 0 0 0;
-    border-radius: 0px 0 0 0;
   }
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
@@ -7447,11 +7082,6 @@ a.badge:focus {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    -moz-border-radius: 0 0 0 0;
-    -webkit-border-radius: 0 0 0 0;
-    -o-border-radius: 0 0 0 0;
-    -ms-border-radius: 0 0 0 0;
-    border-radius: 0 0 0 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -7622,70 +7252,45 @@ a [class*=" icon-"] {
 .icon-border {
   border: solid 1px #eeeeee;
   padding: .2em .25em .15em;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-border-radius: 3px 0 0 0;
-  -webkit-border-radius: 3px 0 0 0;
-  -o-border-radius: 3px 0 0 0;
-  -ms-border-radius: 3px 0 0 0;
-  border-radius: 3px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .icon-2x {
   font-size: 2em;
 }
 .icon-2x.icon-border {
   border-width: 2px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px 0 0 0;
-  -webkit-border-radius: 4px 0 0 0;
-  -o-border-radius: 4px 0 0 0;
-  -ms-border-radius: 4px 0 0 0;
-  border-radius: 4px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .icon-3x {
   font-size: 3em;
 }
 .icon-3x.icon-border {
   border-width: 3px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-border-radius: 5px 0 0 0;
-  -webkit-border-radius: 5px 0 0 0;
-  -o-border-radius: 5px 0 0 0;
-  -ms-border-radius: 5px 0 0 0;
-  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .icon-4x {
   font-size: 4em;
 }
 .icon-4x.icon-border {
   border-width: 4px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-border-radius: 6px 0 0 0;
-  -webkit-border-radius: 6px 0 0 0;
-  -o-border-radius: 6px 0 0 0;
-  -ms-border-radius: 6px 0 0 0;
-  border-radius: 6px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .icon-5x {
   font-size: 5em;
 }
 .icon-5x.icon-border {
   border-width: 5px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  -moz-border-radius: 7px 0 0 0;
-  -webkit-border-radius: 7px 0 0 0;
-  -o-border-radius: 7px 0 0 0;
-  -ms-border-radius: 7px 0 0 0;
-  border-radius: 7px 0 0 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .pull-right {
   float: right;
@@ -9537,11 +9142,9 @@ a:link {
   transition: all 200ms ease-in-out;
   /*.icon-back;*/
   text-align: right;
-  -moz-border-radius: 0 16px 16px 0;
-  -webkit-border-radius: 0 16px 16px 0;
-  -o-border-radius: 0 16px 16px 0;
-  -ms-border-radius: 0 16px 16px 0;
-  border-radius: 0 16px 16px 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  -moz-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
   z-index: 999;
 }
 .plugin_slider_prevlink:hover {
@@ -9574,11 +9177,9 @@ a:link {
   transition: all 200ms ease-in-out;
   /*.icon-next;*/
   text-align: left;
-  -moz-border-radius: 16px 0 0 16px;
-  -webkit-border-radius: 16px 0 0 16px;
-  -o-border-radius: 16px 0 0 16px;
-  -ms-border-radius: 16px 0 0 16px;
-  border-radius: 16px 0 0 16px;
+  -webkit-border-radius: 0px 0 0 0px;
+  -moz-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
   z-index: 999;
 }
 .plugin_slider_nextlink:hover {
@@ -9600,13 +9201,11 @@ div.plugin_slider_slidemenu {
   width: 500px;
   height: 400px;
   max-height: 400px;
-  background-color: rgba(0, 43, 54, 0.9);
+  background-color: #d8d3b3;
   font-size: 16px;
   color: #fcfbf7;
-  -moz-border-radius: 0 0 0px 0px;
   -webkit-border-radius: 0 0 0px 0px;
-  -o-border-radius: 0 0 0px 0px;
-  -ms-border-radius: 0 0 0px 0px;
+  -moz-border-radius: 0 0 0px 0px;
   border-radius: 0 0 0px 0px;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -9628,6 +9227,7 @@ div.plugin_slider_slidemenu h4 {
   display: block;
   text-align: center;
   color: #ffffff;
+  font-size: 16px;
 }
 div.plugin_slider_slidemenu a {
   color: #93a1a1;
@@ -9637,14 +9237,55 @@ div.plugin_slider_slidemenu a:hover {
   color: #ffffff;
 }
 div.plugin_slider_slidemenu a.plugin_slider_new {
-  /*.label-success;*/
+  /*.label-success();*/
 }
 div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper {
   overflow: auto;
   height: 362px;
+  -webkit-border-radius: 0 0 0px 0px;
+  -moz-border-radius: 0 0 0px 0px;
+  border-radius: 0 0 0px 0px;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul {
+  padding: 0 12px 0 24px;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li {
+  *zoom: 1;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li:before,
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li:after {
+  clear: both;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li .badge {
+  margin-left: 4px;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  background-color: #004b9a;
 }
 div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li ul {
   overflow: visible;
+  font-family: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', Times, serif;
+  font-size: 13.6px;
+  color: #7e7641;
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li ul li {
+  border-left: 2px solid transparent;
+  padding-left: 6px;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li ul li:hover {
+  border-left: 2px solid #b5ac70;
+}
+div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li ul li a {
+  color: #7e7641;
 }
 #slideframe {
   height: 100%;
@@ -9669,7 +9310,6 @@ body #main.listing #page div.plugin_slider_slide h1 {
   letter-spacing: 2px;
 }
 body #main.listing #page div.plugin_slider_slide ul {
-  font-family: Ubuntu, Calibri, sans-serif;
   color: #004b9a;
   margin: 0 48px 0 0;
   padding-right: 0;
