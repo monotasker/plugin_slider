@@ -68,7 +68,6 @@ def decklist():
             decklist[i] = (active, setlist)
         else:
             pass
-    #pprint(decklist)
     return decklist
 
 
@@ -98,7 +97,6 @@ def start_deck():
         #did = session.plugin_slider_did
     else:
         did = None
-    print 'start_deck: did is', did
     session.plugin_slider_did = did
     dname = None
     firstslide = request.vars.firstslide if 'firstslide' in request.vars.keys() else None
@@ -106,7 +104,6 @@ def start_deck():
     deckorder = None
     if did:
         session['plugin_slider_did'] = did
-        print 'deck is', did
     else:
         response.flash = "Sorry, I couldn't find the slides you asked for."
 
@@ -127,7 +124,6 @@ def start_deck():
 
     if not firstslide:
         response.flash = "Sorry, there aren't any slides in that deck yet."
-    print 'start_deck: firstslide is', firstslide
 
     return dict(did=did,
                 dname=dname,
@@ -168,7 +164,6 @@ def show_slide():
     Returns a dictionary with a single item, 'content', containing a
     web2py MARKMIN helper object with the text contents of the slide.
     """
-    print 'starting show_slide'
     deckorder = request.vars.deckorder if 'deckorder' in request.vars.keys() \
                 else session.plugin_slider_deckorder
     if len(request.args) > 1:
@@ -178,11 +173,9 @@ def show_slide():
     else:
         sid = session.plugin_slider_sid
     session.plugin_slider_sid = sid
-    print 'show_slide: sid is', sid
 
     did = int(request.args[0]) if len(request.args) else session.plugin_slider_did
     session.plugin_slider_did = did
-    print 'show_slide: did is', did
     dname = db.plugin_slider_decks(did).deck_name
 
     # get slide content
@@ -228,8 +221,6 @@ def addform():
     newindex = sindex + 1
     if newindex == len(deckorder) or direction == 'before':
         newindex = sindex
-    print 'adding slide to deck', did
-    print 'adding slide from', sid
 
     form = SQLFORM(db.plugin_slider_slides,
                    separator='',
@@ -244,7 +235,6 @@ def addform():
         deckslides.insert(sindex, slideid)
         deckrow.update_record(deck_slides=deckslides)
         response.flash = 'The new slide was added successfully.'
-        print '\n\nform processed'
     elif form.errors:
         print '\n\nlistandedit form errors:'
         pprint({k: v for k, v in form.errors.iteritems()})
@@ -256,9 +246,6 @@ def addform():
                          'the form. The changes have not been recorded.'
 
     else:
-        #print '\n\nform not processed, but no errors'
-        #pprint({k: v for k, v in form.vars.iteritems()})
-        #pprint({k: v for k, v in request.vars.iteritems()})
         pass
 
     return form
@@ -271,26 +258,26 @@ def delete_slide():
     did = request.args[0]
     sid = request.args[1]
     deckorder = session.plugin_slider_deckorder
-    print 'delete: deckorder', deckorder
-    print 'delete: sid', sid
-    print 'delete: index is', deckorder.index(sid)
 
     deckrow = db.plugin_slider_decks(did)
-    sliderow = db.plugin_slider_slides(sid)
+    sliderow = db(db.plugin_slider_slides.id == sid).select().first()
 
     if deckrow and sliderow:
         sliderow.delete_record()
-
-        sindex = deckorder.index(sid)
+        if db.plugin_slider_slides(sid):
+            print 'slide', sid, 'still in db'
+        sindex = deckorder.index(int(sid))
         deckorder.pop(sindex)
         deckrow.update_record(deck_slides=deckorder)
 
-        fallback = sindex - 1 if sindex != 0 else sindex
-        session.plugin_slider_sid = deckorder[fallback]
+        fallback_index = sindex - 1 if sindex != 0 else sindex
+        session.plugin_slider_sid = fallback_id = deckorder[fallback_index]
+        session.plugin_slider_deckorder = deckorder
     else:
         response.flash = 'Sorry, I couldn\'t delete the slide.'
 
-    return show_slide()
+    return {'did': did,
+            'sid': fallback_id}
 
 
 def editform():
@@ -298,7 +285,6 @@ def editform():
     Return a sqlform object for editing the specified slide.
     """
     sid = session.plugin_slider_sid
-    #print 'editing slide', sid
     form = SQLFORM(db.plugin_slider_slides, sid,
                    separator='',
                    deletable=True,
@@ -306,7 +292,6 @@ def editform():
 
     if form.process(formname='plugin_slider_slides/{}'.format(sid)).accepted:
         response.flash = 'The changes were recorded successfully.'
-        print '\n\nform processed'
     elif form.errors:
         print '\n\nlistandedit form errors:'
         pprint({k: v for k, v in form.errors.iteritems()})
@@ -318,9 +303,6 @@ def editform():
                          'the form. The changes have not been recorded.'
 
     else:
-        #print '\n\nform not processed, but no errors'
-        #pprint({k: v for k, v in form.vars.iteritems()})
-        #pprint({k: v for k, v in request.vars.iteritems()})
         pass
 
     return form
@@ -336,10 +318,7 @@ def next_slide():
 
     """
     sid = session.plugin_slider_sid
-    print 'current slide', sid
     deckorder = session.plugin_slider_deckorder
-    print 'deckorder in next_slide:'
-    pprint(deckorder)
     curr_i = deckorder.index(int(sid))
     new_i = curr_i + 1
     if len(deckorder) > new_i:
