@@ -1,25 +1,59 @@
 {{from plugin_widgets import ROLE, MODAL}}
-{{editor = MODAL('Edit', 'Edit slide',
+
+{{editor = MODAL(B(_class='icon-edit'), 'Edit slide',
                  LOAD('plugin_slider', 'editform.load',
                       args=[did, sid], ajax=True),
-                 trigger_classes='btn btn-danger plugin_slider_slide_editor',
+                 trigger_classes='btn btn-warning plugin_slider_slide_editor',
                  id='plugin_slider_editform')
-  }}
-{{adder = MODAL('Add', 'Add slide',
-                 LOAD('plugin_slider', 'addform.load',
-                      args=[did, sid], ajax=True),
-                 trigger_classes='btn btn-success plugin_slider_slide_adder',
-                 id='plugin_slider_addform')
-  }}
+
+adder_before = MODAL(CAT(B(_class='icon-chevron-left'), B(_class='icon-plus')),
+                     'Add new slide before the current one',
+                     LOAD('plugin_slider', 'addform.load',
+                          args=[did, sid], vars={'direction': 'before'}, ajax=True),
+                     trigger_classes='btn btn-success plugin_slider_slide_adder',
+                     id='plugin_slider_addform')
+
+adder_after = MODAL(CAT(B(_class='icon-plus'), B(_class='icon-chevron-right')),
+                    'Add slide after the current one',
+                    LOAD('plugin_slider', 'addform.load',
+                         args=[did, sid], vars={'direction': 'after'}, ajax=True),
+                    trigger_classes='btn btn-success plugin_slider_slide_adder',
+                    id='plugin_slider_addform')
+
+deleter = A(B(_class='icon-remove'),
+            _href=URL('plugin_slider', 'delete_slide.load', args=[did, sid]),
+            cid='plugin_slider_slide',
+            _class='btn btn-danger plugin_slider_slide_adder',
+            )
+}}
 
 <div class='plugin_slider_frameheader'>
-    {{=ROLE(editor[0])}}
-    {{=ROLE(adder[0])}}
+    <div class='btn-group'>
+        {{=ROLE(editor[0])}}
+        {{=ROLE(adder_before[0])}}
+        {{=ROLE(adder_after[0])}}
+        {{=ROLE(deleter)}}
+    </div>
 </div>
 
 <!--main slide content-->
 {{=content}}
 
+<!--pager-->
+<div class="pagination pagination-centered">
+<ul>
+    {{for idx, slide in enumerate(deckorder):
+        cur_slide = 'active' if (slide == sid) else ''}}
+        <li class="{{=cur_slide}}">
+        {{=A((idx + 1),
+             _href=URL('plugin_slider', 'show_slide.load', args=[did, slide]),
+             cid='plugin_slider_slide')}}
+        </li>
+    {{pass}}
+</ul>
+</div>
+
 <!--hidden modal forms-->
 {{=ROLE(editor[1])}}
-{{=ROLE(adder[1])}}
+{{=ROLE(adder_before[1])}}
+{{=ROLE(adder_after[1])}}

@@ -3,7 +3,7 @@ if 0:
     from gluon import current, URL, MARKMIN, SQLFORM
     request, session, db = current.request, current.session, current.db
     response, auth = current.response, current.auth
-import traceback
+#import traceback
 from datetime import datetime, timedelta
 from itertools import chain
 
@@ -169,6 +169,8 @@ def show_slide():
     web2py MARKMIN helper object with the text contents of the slide.
     """
     print 'starting show_slide'
+    deckorder = request.vars.deckorder if 'deckorder' in request.vars.keys() \
+                else session.plugin_slider_deckorder
     if len(request.args) > 1:
         sid = int(request.args[1])
     elif 'firstslide' in request.vars.keys():
@@ -209,7 +211,8 @@ def show_slide():
                 did=did,
                 dname=dname,
                 sid=sid,
-                editform=editform())
+                editform=editform(),
+                deckorder=deckorder)
 
 
 def addform():
@@ -217,25 +220,28 @@ def addform():
     Return a sqlform object for editing the specified slide.
     """
     did = request.args[0]
+    direction = request.vars.direction
+    sid = session.plugin_slider_sid
     deckorder = session.plugin_slider_deckorder
-    #print 'adding slide to deck', did
-    #print 'adding slide from', sid
+    # get index for inserting new slide
+    sindex = deckorder.index(sid)
+    newindex = sindex + 1
+    if newindex == len(deckorder) or direction == 'before':
+        newindex = sindex
+    print 'adding slide to deck', did
+    print 'adding slide from', sid
+
     form = SQLFORM(db.plugin_slider_slides,
                    separator='',
                    deletable=True,
                    showid=True,
                    formname='plugin_slider_slides/addnew')
-
     if form.process(formname='plugin_slider_slides/addnew').accepted:
         deckrow = db.plugin_slider_decks(did)
         # TODO: is this the best way to get the new slide id?
         slideid = db(db.plugin_slider_slides).select().last().id
-        sindex = deckorder.index(slideid)
-        newindex = sindex + 1
-        if newindex == len(deckorder):
-            newindex = -1
         deckslides = deckrow.deck_slides
-        deckslides.insert(sindex, newindex)
+        deckslides.insert(sindex, slideid)
         deckrow.update_record(deck_slides=deckslides)
         response.flash = 'The new slide was added successfully.'
         print '\n\nform processed'
@@ -256,6 +262,35 @@ def addform():
         pass
 
     return form
+
+
+def delete_slide():
+    """
+    Delete the slide from the deck and display the previous existing slide.
+    """
+    did = request.args[0]
+    sid = request.args[1]
+    deckorder = session.plugin_slider_deckorder
+    print 'delete: deckorder', deckorder
+    print 'delete: sid', sid
+    print 'delete: index is', deckorder.index(sid)
+
+    deckrow = db.plugin_slider_decks(did)
+    sliderow = db.plugin_slider_slides(sid)
+
+    if deckrow and sliderow:
+        sliderow.delete_record()
+
+        sindex = deckorder.index(sid)
+        deckorder.pop(sindex)
+        deckrow.update_record(deck_slides=deckorder)
+
+        fallback = sindex - 1 if sindex != 0 else sindex
+        session.plugin_slider_sid = deckorder[fallback]
+    else:
+        response.flash = 'Sorry, I couldn\'t delete the slide.'
+
+    return show_slide()
 
 
 def editform():

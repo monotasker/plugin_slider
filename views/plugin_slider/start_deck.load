@@ -4,15 +4,15 @@
 <div id=plugin_slider_{{=did}} class='plugin_slider_frame row-fluid span12'>
 
     {{=A(SPAN(u'\u200b', _class='accessible icon-chevron-right'),
-                    _href=URL('plugin_slider', 'next_slide'),
-                    _class='plugin_slider_nextlink',
-                    cid='plugin_slider_slide'
-                    )}}
-    {{=A(SPAN(u'\u200b', _class='accessible icon-chevron-left'), 
-                    _href=URL('plugin_slider', 'prev_slide'),
-                    _class='plugin_slider_prevlink',
-                    cid='plugin_slider_slide'
-                    )}}
+              _href=URL('plugin_slider', 'next_slide'),
+              _class='plugin_slider_nextlink',
+              cid='plugin_slider_slide'
+              )}}
+    {{=A(SPAN(u'\u200b', _class='accessible icon-chevron-left'),
+              _href=URL('plugin_slider', 'prev_slide'),
+              _class='plugin_slider_prevlink',
+              cid='plugin_slider_slide'
+              )}}
     {{
     if dname:
         deckheader = dname, SPAN(_class='caret')

@@ -1,0 +1,1 @@
+{{=LOAD('plugin_slider', 'show_slide', args=[did, sid], ajax=False)}}
