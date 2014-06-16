@@ -26,6 +26,8 @@ response.files.insert(5, URL('static',
 db.define_table('plugin_slider_themes',
                 Field('theme_name', 'string'),
                 Field('description', 'text'),
+                Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
+                Field('modified_on', 'datetime', default=request.now),
                 format='%(theme_name)s'
                 )
 
@@ -35,6 +37,8 @@ db.define_table('plugin_slider_slides',
                 Field('theme', 'list:reference plugin_slider_themes'),
                 Field('updated', 'datetime', default=datetime.datetime.utcnow()
                       ),
+                Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
+                Field('modified_on', 'datetime', default=request.now),
                 format='%(slide_name)s'
                 )
 db.plugin_slider_slides.theme.requires = IS_IN_DB(db,
@@ -52,6 +56,8 @@ db.define_table('plugin_slider_decks',
                 Field('deck_slides', 'list:reference plugin_slider_slides'),
                 Field('theme', 'list:reference plugin_slider_themes'),
                 Field('deck_position', 'integer'),
+                Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
+                Field('modified_on', 'datetime', default=request.now),
                 format='%(deck_name)s'
                 )
 db.plugin_slider_decks.deck_slides.requires = IS_IN_DB(db,
