@@ -1,4 +1,24 @@
-@import "../../../../plugin_framework/static/plugin_framework/css/framework.less";
+@baseLineHeight: 21px;
+@baseFontSize: 16px;
+@fontSizeMini: 10px;
+@fontSizeSmall: 12px;
+@sansFontFamily: "Fira Sans", Arial, sans-serif;
+@serifFontFamily: "SBLGreekRegular", serif;
+
+@ocp_yellow: yellow;
+@cinnamon: brown;
+@palletteBG: #efefef;
+@pallette1: #eee;
+@pallette2: #aaa;
+@sol_grey4: #666;
+@sol_beige: #efefef;
+@sol_orange: orange;
+@sol_blue: blue;
+@sol_charcoal: #666;
+@sol_grey3: #888;
+@black: #000;
+@white: #fff;
+@accent2: red;
 
 @nominative: #17a1c4;
 @genitive: #568C2B;
@@ -23,9 +43,9 @@
                                 opacity:0.6;
                                 font-size:@baseFontSize;
                                 padding:0 @baseLineHeight;
-                                .transition();
+                                transition: 200ms all ease-in-out;
     &:hover                    {
-                                .transition();
+                                transition: 200ms all ease-in-out;
                                 }
 }
 
@@ -33,7 +53,6 @@
                                 .plugin_slider_navlink;
                                 /*.icon-back;*/
                                 text-align: right;
-                                .border-radius(0 @borderRadiusLarge @borderRadiusLarge 0);
                                 z-index: 999;
     &:hover                    {left:0;}
 }
@@ -41,7 +60,6 @@
                                 .plugin_slider_navlink;
                                 /*.icon-next;*/
                                 text-align: left;
-                                .border-radius(@borderRadiusLarge 0 0 @borderRadiusLarge);
                                 z-index: 999;
     &:hover                    {right:0;}
 }
@@ -57,12 +75,11 @@ div.plugin_slider_slidemenu    {display:block;
                                 background-color:@pallette2;  //fadeout(@sol_charcoal, 10%);
                                 font-size:@baseFontSize;
                                 color:@palletteBG;
-                                .border-radius(0 0 @borderRadiusLarge @borderRadiusLarge);
-                                .transition();
+                                transition: 200ms all linear;
                                 z-index:99;
     &:hover,
     &.initial_state            {top:0;
-                                .transition();
+                                transition: 200ms all ease-in-out;
     }
 
     h4                         {display:block;
@@ -81,10 +98,9 @@ div.plugin_slider_slidemenu    {display:block;
     }
     .plugin_slider_decklist_wrapper {overflow:auto;
                                      height:362px;
-                                     .border-radius(0 0 @borderRadiusLarge @borderRadiusLarge); 
         ul                         {padding:0 (@baseLineHeight / 2) 0 @baseLineHeight;
                                     font-family: @sansFontFamily;
-            li                     {.clearfix();
+            li                     { //.clearfix();
                 span               {}
                 .badge             {margin-left:(@baseLineHeight / 6);
                                     font-family:@sansFontFamily;
@@ -116,7 +132,7 @@ div.plugin_slider_slidemenu    {display:block;
 }
 
 body #main.listing #page div.plugin_slider_slide{
-    .Greek;
+    font-family: @serifFontFamily;
     width:100%;
     height:100%;
     z-index:99;
@@ -129,7 +145,7 @@ body #main.listing #page div.plugin_slider_slide{
         margin:0 auto;
         text-align: center;
         font-style: normal;
-        .blockletter;
+        test-transform: uppercase;
     }
     ul                                 {//font-family:Ubuntu, Calibri, sans-serif;
                                         color: darken(@accent2, 10%);
@@ -166,7 +182,7 @@ body #main.listing #page div.plugin_slider_slide{
                                         border-spacing: 0;
                                         text-align: center;
                                         color: @cinnamon;
-                                        .Greek;
+                                        font-family: @serifFontFamily;
                                         font-size: @baseFontSize * 1.5;
                                         margin: (@baseFontSize/2) auto;
         tr                             {
@@ -223,7 +239,6 @@ body #main.listing #page div.plugin_slider_slide{
                                         border-top:1px solid #fff;
                 td                     {background-color: @pallette2;
                                         color:@white;
-                                        .text-shadow();
                                         text-align:center;
                     &:first-child,
                     &:last-child       {display:none;}
@@ -241,7 +256,6 @@ body #main.listing #page div.plugin_slider_slide{
 .clause_diagram_greek         {
     td                         {background-color: transparent;
                                 overflow: visible;
-                                .inset-text;
         &:first-child          {background-color: @sol_grey4;
                                 color: @white;}
         &:nth-child(3)         {background-color: @ocp_yellow;}
@@ -255,7 +269,6 @@ body #main.listing #page div.plugin_slider_slide{
 .subject_predicate_table      {
     tr:first-child             {
         td                     {background-color: transparent;
-                                .inset-text;
             &:first-child      {background-color: @sol_blue;
                                 color: @white;}
             &:nth-child(3)     {background-color: @sol_grey4;
@@ -264,6 +277,6 @@ body #main.listing #page div.plugin_slider_slide{
     }
 }
 
-.subject_div                   {
-    &:after                    {.line(2px, 100px, @sol_grey3, 45deg, 50%, 0)}
-}
+/*.subject_div                   {*/
+    /*&:after                    {.line(2px, 100px, @sol_grey3, 45deg, 50%, 0)}*/
+/*}*/
