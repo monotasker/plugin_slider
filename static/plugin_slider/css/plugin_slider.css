@@ -73,7 +73,7 @@
 div.plugin_slider_slidemenu {
   display: block;
   position: absolute;
-  top: -379px;
+  top: -362.2px;
   left: 50%;
   margin-left: -250px;
   width: 500px;
@@ -144,14 +144,15 @@ div.plugin_slider_slidemenu .plugin_slider_decklist_wrapper ul li ul li a {
 #slideframe {
   height: 100%;
 }
-body #main.listing #page div.plugin_slider_slide {
+body.slides div.plugin_slider_slide {
   font-family: "SBLGreekRegular", serif;
   width: 100%;
   height: 100%;
   z-index: 99;
   padding-bottom: 42px;
+  padding-top: 42px;
 }
-body #main.listing #page div.plugin_slider_slide h1 {
+body.slides div.plugin_slider_slide h1 {
   display: block;
   font-size: 24px;
   color: #ffa500;
@@ -160,46 +161,47 @@ body #main.listing #page div.plugin_slider_slide h1 {
   font-style: normal;
   test-transform: uppercase;
 }
-body #main.listing #page div.plugin_slider_slide ul {
+body.slides div.plugin_slider_slide ul {
   color: #cc0000;
-  margin: 0 42px 0 0;
+  margin: 0;
   padding-right: 0;
   padding-left: 84px;
+  list-style-type: disc;
 }
-body #main.listing #page div.plugin_slider_slide ul li {
+body.slides div.plugin_slider_slide ul li {
   font-size: 20px;
   line-height: 26.25px;
 }
-body #main.listing #page div.plugin_slider_slide ul ul {
+body.slides div.plugin_slider_slide ul ul {
   padding-left: 21px;
-  padding-bottom: 10.5px;
+  padding-bottom: 0;
 }
-body #main.listing #page div.plugin_slider_slide ul ul li {
+body.slides div.plugin_slider_slide ul ul li {
   font-size: 16px;
   line-height: 21px;
   color: #777777;
 }
-body #main.listing #page div.plugin_slider_slide ul ul ul li {
+body.slides div.plugin_slider_slide ul ul ul li {
   color: #ffb733;
 }
-body #main.listing #page div.plugin_slider_slide ol {
+body.slides div.plugin_slider_slide ol {
   font-family: Ubuntu, Calibri;
   font-size: 1.5em;
   color: #268bd2;
   line-height: 2em;
   margin: 0;
 }
-body #main.listing #page div.plugin_slider_slide img {
+body.slides div.plugin_slider_slide img {
   margin: 0 auto;
   display: block;
 }
-body #main.listing #page div.plugin_slider_slide img.pull-right {
+body.slides div.plugin_slider_slide img.pull-right {
   margin-right: 42px;
 }
-body #main.listing #page div.plugin_slider_slide img.pull-left {
+body.slides div.plugin_slider_slide img.pull-left {
   margin-left: 42px;
 }
-body #main.listing #page div.plugin_slider_slide table {
+body.slides div.plugin_slider_slide table {
   background-color: transparent;
   border-collapse: separate;
   border-spacing: 0;
@@ -209,61 +211,61 @@ body #main.listing #page div.plugin_slider_slide table {
   font-size: 24px;
   margin: 8px auto;
 }
-body #main.listing #page div.plugin_slider_slide table tr td {
+body.slides div.plugin_slider_slide table tr td {
   background-color: #efefef;
   padding: 8px 16px;
 }
-body #main.listing #page div.plugin_slider_slide table tr.even td {
+body.slides div.plugin_slider_slide table tr.even td {
   background-color: #eaeaea;
 }
-body #main.listing #page div.plugin_slider_slide table.dark_col_2 tr td:nth-child(2) {
+body.slides div.plugin_slider_slide table.dark_col_2 tr td:nth-child(2) {
   background-color: #d6d6d6;
   color: #ffffff;
 }
-body #main.listing #page div.plugin_slider_slide table.dark_col_2 tr.even td:nth-child(2) {
+body.slides div.plugin_slider_slide table.dark_col_2 tr.even td:nth-child(2) {
   background-color: #d0d0d0;
 }
-body #main.listing #page div.plugin_slider_slide table.dark_col_1 tr td:first-child {
+body.slides div.plugin_slider_slide table.dark_col_1 tr td:first-child {
   background-color: #d6d6d6;
   color: #ffffff;
 }
-body #main.listing #page div.plugin_slider_slide table.dark_col_1 tr.even td:first-child {
+body.slides div.plugin_slider_slide table.dark_col_1 tr.even td:first-child {
   background-color: #d0d0d0;
 }
-body #main.listing #page div.plugin_slider_slide table.header_dark thead td {
+body.slides div.plugin_slider_slide table.header_dark thead td {
   background-color: #d6d6d6;
   color: #ffffff;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table {
+body.slides div.plugin_slider_slide table.letter_table {
   padding: 16px;
   text-align: center;
   margin: 16px auto;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table thead tr {
+body.slides div.plugin_slider_slide table.letter_table thead tr {
   font-size: 4em;
   line-height: 1.25em;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table thead tr td {
+body.slides div.plugin_slider_slide table.letter_table thead tr td {
   padding: 16px 0.5em;
   color: #a52a2a;
   background-color: #eeeeee;
   text-align: center;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table thead tr td:first-child,
-body #main.listing #page div.plugin_slider_slide table.letter_table thead tr td:last-child {
+body.slides div.plugin_slider_slide table.letter_table thead tr td:first-child,
+body.slides div.plugin_slider_slide table.letter_table thead tr td:last-child {
   display: none;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table tbody tr {
+body.slides div.plugin_slider_slide table.letter_table tbody tr {
   font-size: 1.5em;
   border-top: 1px solid #fff;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table tbody tr td {
+body.slides div.plugin_slider_slide table.letter_table tbody tr td {
   background-color: #aaaaaa;
   color: #ffffff;
   text-align: center;
 }
-body #main.listing #page div.plugin_slider_slide table.letter_table tbody tr td:first-child,
-body #main.listing #page div.plugin_slider_slide table.letter_table tbody tr td:last-child {
+body.slides div.plugin_slider_slide table.letter_table tbody tr td:first-child,
+body.slides div.plugin_slider_slide table.letter_table tbody tr td:last-child {
   display: none;
 }
 .clause_diagram_greek td {
