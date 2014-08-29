@@ -194,6 +194,7 @@ body.slides div.plugin_slider_slide ol {
 body.slides div.plugin_slider_slide img {
   margin: 0 auto;
   display: block;
+  max-width: 400px;
 }
 body.slides div.plugin_slider_slide img.pull-right {
   margin-right: 42px;
