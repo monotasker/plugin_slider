@@ -40,8 +40,8 @@ deleter = A(B(_class='icon-remove'),
 {{=content}}
 
 <!--pager-->
-<div class="pagination pagination-centered">
-<ul>
+<div class="text-center"> 
+<ul class="pagination pagination-sm">
     {{for idx, slide in enumerate(deckorder):
         cur_slide = 'active' if (slide == sid) else ''}}
         <li class="{{=cur_slide}}">

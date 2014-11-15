@@ -172,6 +172,9 @@ body.slides div.plugin_slider_slide ul li {
   font-size: 20px;
   line-height: 26.25px;
 }
+body.slides div.plugin_slider_slide ul.pagination {
+  padding-left: 0;
+}
 body.slides div.plugin_slider_slide ul ul {
   padding-left: 21px;
   padding-bottom: 0;
