@@ -6,6 +6,7 @@ if 0:
 #import traceback
 from datetime import datetime, timedelta
 from itertools import chain
+from operator import itemgetter
 
 
 def decklist():
@@ -51,7 +52,8 @@ def decklist():
         setdecks = list(set([int(did) for did, dtags in deckinfo.iteritems()
                              if i in [t[2] for t in dtags]
                              and did not in chain(decklist)]))
-
+        setdecks = sorted(setdecks,
+                          key=lambda sd: db.plugin_slider_decks(sd).deck_position)
         if setdecks:
             setlist = {}
             for did in setdecks:
