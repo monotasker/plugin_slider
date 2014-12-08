@@ -35,42 +35,43 @@ def decklist():
     "plugin_slider_new " to allow flagging or distinct theming via css.
     """
     decks = db(db.plugin_slider_decks.id > 0).select()
-    deckinfo = {}
+    deckstags = {}
     for d in decks:
         tagbadges = db((db.tags.id == db.badges.tag) &
                        (db.tags.slides.contains(d.id))).select()
         decktags = [(int(t.tags.id),
                      t.badges.badge_name,
                      int(t.tags.tag_position)) for t in tagbadges]
-        deckinfo[d.id] = decktags
+        deckstags[d.id] = decktags
     # the 999 constraint allows position 999 to be used to deactivate
-    maxpos = max([int(t[2]) for d in deckinfo.values() for t in d
+    maxpos = max([int(t[2]) for d in deckstags.values() for t in d
                   if int(t[2]) > 0 and int(t[2]) < 999])
-    decklist = {}
+    setslist = {}
     prog = db(db.tag_progress.name == auth.user_id).select().first()
     for i in range(0, maxpos):
-        setdecks = list(set([int(did) for did, dtags in deckinfo.iteritems()
+        setids = list(set([int(did) for did, dtags in deckstags.iteritems()
                              if i in [t[2] for t in dtags]
-                             and did not in chain(decklist)]))
-        setdecks = sorted(setdecks,
-                          key=lambda sd: db.plugin_slider_decks(sd).deck_position)
-        if setdecks:
-            setlist = {}
-            for did in setdecks:
+                             and did not in chain(setslist)]))
+        setids = sorted(setids,
+                        key=lambda sd: db.plugin_slider_decks(sd).deck_position)
+        if setids:
+            setdecks = []
+            for did in setids:
                 drow = db.plugin_slider_decks(did)
-                setinfo = {'name': drow.deck_name,
-                           'tags': deckinfo[did],
-                           'classes': ''}
+                dinfo = {'id': did,
+                         'name': drow.deck_name,
+                         'tags': deckstags[did],
+                         'classes': ''}
                 now = datetime.utcnow()
                 week = timedelta(days=7)
                 if drow.updated and (now - drow.updated < week):
-                    setinfo['classes'] = 'plugin_slider_new '
-                setlist[did] = setinfo
+                    dinfo['classes'] = 'plugin_slider_new '
+                setdecks.append(dinfo)
             active = True if prog and i <= prog.latest_new else False
-            decklist[i] = (active, setlist)
+            setslist[i] = (active, setdecks)
         else:
             pass
-    return decklist
+    return setslist
 
 
 def start_deck():
@@ -131,7 +132,7 @@ def start_deck():
                 dname=dname,
                 firstslide=firstslide,
                 theme=theme,
-                decklist=mydecklist,
+                setslist=mydecklist,
                 #slidelist=slidelist,
                 deckorder=deckorder)
 

@@ -23,13 +23,13 @@
                          _class='plugin_slider_decklist_wrapper'),
                      H4(deckheader),
                      _class='plugin_slider_slidemenu {}'.format(mystate))
-    for myset, mydecks in decklist.iteritems():
-        active = 'plugin_slider_active' if mydecks[0] else ''
+    for myset, setdecks in setslist.iteritems():
+        active = 'plugin_slider_active' if setdecks[0] else ''
         setrow = LI('Badge set {}'.format(myset),
                     UL(_class='set-decks'),
                     _class='set-row {}'.format(active))
-        for deckid, deckinfo in mydecks[1].iteritems():
-            did = deckid
+        for deckinfo in setdecks[1]:
+            did = deckinfo['id']
             dname = deckinfo['name']
             dbadges = [SPAN(b[1], _class='badge badge-info pull-right') for b in deckinfo['tags']]
             dclasses = deckinfo['classes']
