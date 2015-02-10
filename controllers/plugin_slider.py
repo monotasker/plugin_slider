@@ -1,12 +1,12 @@
 from pprint import pprint
 if 0:
-    from gluon import current, URL, MARKMIN, SQLFORM
+    from gluon import current, MARKMIN, SQLFORM
     request, session, db = current.request, current.session, current.db
     response, auth = current.response, current.auth
-#import traceback
+# import traceback
 from datetime import datetime, timedelta
 from itertools import chain
-from operator import itemgetter
+from plugin_markmin_extras import mm_extras
 
 
 def decklist():
@@ -96,8 +96,8 @@ def start_deck():
     """
     if len(request.args):
         did = int(request.args[0])
-    #elif 'plugin_slider_did' in session.keys():
-        #did = session.plugin_slider_did
+    # elif 'plugin_slider_did' in session.keys():
+        # did = session.plugin_slider_did
     else:
         did = None
     session.plugin_slider_did = did
@@ -123,7 +123,7 @@ def start_deck():
 
     # get lists for nav interface
     mydecklist = decklist()
-    #slidelist = slidelist()
+    # slidelist = slidelist()
 
     if not firstslide:
         response.flash = "Sorry, there aren't any slides in that deck yet."
@@ -133,7 +133,7 @@ def start_deck():
                 firstslide=firstslide,
                 theme=theme,
                 setslist=mydecklist,
-                #slidelist=slidelist,
+                # slidelist=slidelist,
                 deckorder=deckorder)
 
 
@@ -141,19 +141,21 @@ def slidelist():
     """
     """
     pass
-    #slidelist = UL(_class='plugin_slider_decklist')
-    #badgetags = db((db.tags.slides.contains(theslide.id)) &
+    '''
+    # slidelist = UL(_class='plugin_slider_decklist')
+    # badgetags = db((db.tags.slides.contains(theslide.id)) &
                    #(db.badges.tag == db.tags.id)).select()
-    #for d in deckorder:
-        #theslide = db.plugin_slider_slides[d]
-        #decklist.append(LI(A(theslide.slide_name,
-                            #_href=URL('plugin_slider',
-                                      #'show_slide',
-                                      #args=[theslide.id]),
-                            #cid='plugin_slider_slide')))
-        #for b in badges:
-            #decklist[-1].append(SPAN(b.badges.badge_name))
-    #deckmenu = None
+    # for d in deckorder:
+        # theslide = db.plugin_slider_slides[d]
+        # decklist.append(LI(A(theslide.slide_name,
+                            # _href=URL('plugin_slider',
+                                      # 'show_slide',
+                                      # args=[theslide.id]),
+                            # cid='plugin_slider_slide')))
+        # for b in badges:
+            # decklist[-1].append(SPAN(b.badges.badge_name))
+    # deckmenu = None
+    '''
 
 
 def show_slide():
@@ -185,23 +187,8 @@ def show_slide():
     slide = db.plugin_slider_slides[int(sid)]
     images = db(db.images.id > 0).select().as_list()
     audios = db(db.audio.id > 0).select().as_list()
-    # custom markmin tags
-    custom_mm = dict(img=lambda text:
-                     '<img class="center" src="{}" '
-                     '/>'.format(URL('static/images',
-                                     [i for i in images
-                                      if i['title'] == text][0]['image'])),
-                     img_r=lambda text: '<img class="pull-right" src="{}" '
-                     '/>'.format(URL('static/images',
-                                     [i for i in images
-                                      if i['title'] == text][0]['image'])),
-                     img_l=lambda text: '<img src="{}" class="pull-left" '
-                     '/>'.format(URL('static/images',
-                                     [i for i in images
-                                      if i['title'] == text][0]['image'])),
-                     audio=lambda text: [i for i in audios
-                                         if i['title'] == text][0]['audio'])
-    content = MARKMIN(slide.slide_content, extra=custom_mm)
+    # markmin extensions from plugin_markmin_extras
+    content = MARKMIN(slide.slide_content, extra=mm_extras)
 
     return dict(content=content,
                 did=did,
