@@ -38,9 +38,10 @@ deleter = A(B(_class='icon-remove'),
 
 <!--main slide content-->
 {{=content}}
+{{=A(I(_class='fa fa-file-pdf-o'), ' Download slides as pdf file', _href=URL('default', 'download', args=[pdf]))}}
 
 <!--pager-->
-<div class="text-center"> 
+<div class="text-center">
 <ul class="pagination pagination-sm">
     {{for idx, slide in enumerate(deckorder):
         cur_slide = 'active' if (slide == sid) else ''}}

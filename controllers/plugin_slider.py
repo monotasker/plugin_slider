@@ -187,10 +187,13 @@ def show_slide():
     slide = db.plugin_slider_slides[int(sid)]
     images = db(db.images.id > 0).select().as_list()
     audios = db(db.audio.id > 0).select().as_list()
+    # filename, stream = db.plugin_slider_slides.pdf.retrieve(slide.image)
+    pdf = slide.pdf
     # markmin extensions from plugin_markmin_extras
     content = MARKMIN(slide.slide_content, extra=mm_extras)
 
     return dict(content=content,
+                pdf=pdf,
                 did=did,
                 dname=dname,
                 sid=sid,

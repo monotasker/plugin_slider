@@ -36,6 +36,7 @@ db.define_table('plugin_slider_slides',
                 Field('theme', 'list:reference plugin_slider_themes'),
                 Field('updated', 'datetime', default=datetime.datetime.utcnow()
                       ),
+                Field('pdf', 'upload', default='static/pdf-slides/'),
                 Field('uuid', length=64, default=lambda:str(uuid.uuid4())),
                 Field('modified_on', 'datetime', default=request.now),
                 format='%(slide_name)s'
