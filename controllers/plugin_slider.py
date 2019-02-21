@@ -44,12 +44,12 @@ def decklist():
                      int(t.tags.tag_position)) for t in tagbadges]
         deckstags[d.id] = decktags
     # the 999 constraint allows position 999 to be used to deactivate
-    maxpos = max([int(t[2]) for d in deckstags.values() for t in d
+    maxpos = max([int(t[2]) for d in list(deckstags.values()) for t in d
                   if int(t[2]) > 0 and int(t[2]) < 999])
     setslist = {}
     prog = db(db.tag_progress.name == auth.user_id).select().first()
     for i in range(0, maxpos):
-        setids = list(set([int(did) for did, dtags in deckstags.iteritems()
+        setids = list(set([int(did) for did, dtags in deckstags.items()
                              if i in [t[2] for t in dtags]
                              and did not in chain(setslist)]))
         setids = sorted(setids,
@@ -102,7 +102,7 @@ def start_deck():
         did = None
     session.plugin_slider_did = did
     dname = None
-    firstslide = request.vars.firstslide if 'firstslide' in request.vars.keys() else None
+    firstslide = request.vars.firstslide if 'firstslide' in list(request.vars.keys()) else None
     theme = None
     deckorder = None
     if did:
@@ -169,11 +169,11 @@ def show_slide():
     Returns a dictionary with a single item, 'content', containing a
     web2py MARKMIN helper object with the text contents of the slide.
     """
-    deckorder = request.vars.deckorder if 'deckorder' in request.vars.keys() \
+    deckorder = request.vars.deckorder if 'deckorder' in list(request.vars.keys()) \
                 else session.plugin_slider_deckorder
     if len(request.args) > 1:
         sid = int(request.args[1])
-    elif 'firstslide' in request.vars.keys():
+    elif 'firstslide' in list(request.vars.keys()):
         sid = int(request.vars.firstslide)
     else:
         sid = session.plugin_slider_sid
@@ -229,12 +229,12 @@ def addform():
         deckrow.update_record(deck_slides=deckslides)
         response.flash = 'The new slide was added successfully.'
     elif form.errors:
-        print '\n\nlistandedit form errors:'
-        pprint({k: v for k, v in form.errors.iteritems()})
-        print '\n\nlistandedit form vars'
-        pprint({k: v for k, v in form.vars.iteritems()})
-        print '\n\nlistandedit request vars'
-        pprint({k: v for k, v in request.vars.iteritems()})
+        print('\n\nlistandedit form errors:')
+        pprint({k: v for k, v in form.errors.items()})
+        print('\n\nlistandedit form vars')
+        pprint({k: v for k, v in form.vars.items()})
+        print('\n\nlistandedit request vars')
+        pprint({k: v for k, v in request.vars.items()})
         response.flash = 'Sorry, there was an error processing ' \
                          'the form. The changes have not been recorded.'
 
@@ -258,7 +258,7 @@ def delete_slide():
     if deckrow and sliderow:
         sliderow.delete_record()
         if db.plugin_slider_slides(sid):
-            print 'slide', sid, 'still in db'
+            print('slide', sid, 'still in db')
         sindex = deckorder.index(int(sid))
         deckorder.pop(sindex)
         deckrow.update_record(deck_slides=deckorder)
@@ -286,12 +286,12 @@ def editform():
     if form.process(formname='plugin_slider_slides/{}'.format(sid)).accepted:
         response.flash = 'The changes were recorded successfully.'
     elif form.errors:
-        print '\n\nlistandedit form errors:'
-        pprint({k: v for k, v in form.errors.iteritems()})
-        print '\n\nlistandedit form vars'
-        pprint({k: v for k, v in form.vars.iteritems()})
-        print '\n\nlistandedit request vars'
-        pprint({k: v for k, v in request.vars.iteritems()})
+        print('\n\nlistandedit form errors:')
+        pprint({k: v for k, v in form.errors.items()})
+        print('\n\nlistandedit form vars')
+        pprint({k: v for k, v in form.vars.items()})
+        print('\n\nlistandedit request vars')
+        pprint({k: v for k, v in request.vars.items()})
         response.flash = 'Sorry, there was an error processing ' \
                          'the form. The changes have not been recorded.'
 
